@@ -25,7 +25,7 @@ export default function Home() {
       const left = Math.random() * 100;
       const top = Math.random() * 100;
       const delay = Math.random() * 3;
-      
+
       stars.push(
         <div
           key={i}
@@ -49,7 +49,7 @@ export default function Home() {
     for (let i = 0; i < 3; i++) {
       const delay = Math.random() * 10;
       const duration = Math.random() * 3 + 2;
-      
+
       shootingStars.push(
         <div
           key={i}
@@ -70,13 +70,13 @@ export default function Home() {
     <div className="min-h-screen relative overflow-hidden">
       {/* 导航栏 */}
       <Navigation />
-      
+
       {/* 动态星空背景 */}
       <StarField />
-      
+
       {/* 粒子效果 */}
       <ParticleEffect />
-      
+
       {/* 静态星空装饰 */}
       <div className="stars">
         {generateStars()}
@@ -94,234 +94,272 @@ export default function Home() {
         }}
       />
 
-      {/* 主要内容 */}
-      <main className="relative z-20 min-h-screen flex flex-col items-center justify-center px-6 py-20">
-        <div className="max-w-7xl mx-auto w-full">
-          {/* 头部区域 */}
-          <div id="home" className="text-center mb-32">
-            <div className="mb-12">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 gradient-text neon-glow">
-                朱佳
-              </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                探索数字宇宙的<span className="gradient-text-blue">创造者</span>
-              </p>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-6 text-base md:text-lg mb-16">
-              <span className="px-6 py-3 glass-card">全栈开发</span>
-              <span className="px-6 py-3 glass-card">UI/UX设计</span>
-              <span className="px-6 py-3 glass-card">创意编程</span>
-            </div>
+      {/* 首页 Hero Section */}
+      <section id="home" className="relative z-20 min-h-screen flex items-center justify-center px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* 主标题 */}
+          <h1 className="text-6xl md:text-8xl lg:text-9xl mb-8 neon-glow">
+            Zhu Jia
+          </h1>
+          
+          {/* 副标题 */}
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 leading-relaxed">
+            专注于<span className="gradient-text-blue">WebGL地图开发</span>与数据可视化的全栈工程师
+          </p>
+          
+          {/* 座右铭 */}
+          <p className="text-lg md:text-xl text-gray-400 mb-12 italic">
+            "敦兮其若朴，旷兮其若谷"
+          </p>
+
+          {/* 技能标签 */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {['WebGL地图开发', '数据可视化', 'Vue/React组件库', 'CesiumJS专家'].map((skill) => (
+              <span key={skill} className="px-6 py-3 glass-card text-sm md:text-base">
+                {skill}
+              </span>
+            ))}
           </div>
 
           {/* 导航卡片 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto mb-24">
-            <div className="glass-card p-10 lg:p-12 text-center group cursor-pointer">
-              <div className="text-5xl lg:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🚀</div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text">项目作品</h3>
-              <p className="text-gray-400 text-base lg:text-lg leading-relaxed">探索我的创意项目和技术实验</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div className="glass-card p-8 text-center group cursor-pointer">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🗺️</div>
+              <h3 className="text-lg font-semibold mb-2 gradient-text">地图项目</h3>
+              <p className="text-gray-400 text-sm">WebGL地图引擎与可视化组件</p>
             </div>
-            
-            <div className="glass-card p-10 lg:p-12 text-center group cursor-pointer">
-              <div className="text-5xl lg:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">💫</div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text">关于我</h3>
-              <p className="text-gray-400 text-base lg:text-lg leading-relaxed">了解我的技能、经历和理念</p>
+            <div className="glass-card p-8 text-center group cursor-pointer">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
+              <h3 className="text-lg font-semibold mb-2 gradient-text">技术栈</h3>
+              <p className="text-gray-400 text-sm">从前端框架到地理信息系统</p>
             </div>
-            
-            <div className="glass-card p-10 lg:p-12 text-center group cursor-pointer">
-              <div className="text-5xl lg:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🌌</div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text">联系方式</h3>
-              <p className="text-gray-400 text-base lg:text-lg leading-relaxed">让我们一起创造无限可能</p>
+            <div className="glass-card p-8 text-center group cursor-pointer">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📡</div>
+              <h3 className="text-lg font-semibold mb-2 gradient-text">开源贡献</h3>
+              <p className="text-gray-400 text-sm">GitHub上的开源项目与社区</p>
             </div>
           </div>
 
           {/* 行动按钮 */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button type="button" className="cosmic-button text-lg px-10 py-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button type="button" className="cosmic-button">
               查看作品集
             </button>
-            <button type="button" className="px-10 py-4 text-lg border border-gray-600 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition-all duration-300">
+            <button type="button" className="px-8 py-3 border border-gray-600 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition-all duration-300">
               下载简历
             </button>
           </div>
         </div>
 
-        {/* 底部装饰 */}
-        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
-          <div className="w-8 h-12 border-2 border-gray-600 rounded-full flex justify-center">
-            <div className="w-1.5 h-4 bg-gradient-to-b from-blue-400 to-transparent rounded-full mt-3 animate-bounce"></div>
+        {/* 滚动指示器 */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-gradient-to-b from-blue-400 to-transparent rounded-full mt-2 animate-bounce" />
           </div>
         </div>
-      </main>
+      </section>
 
       {/* 关于我 Section */}
-      <section className="relative z-20 min-h-screen flex items-center justify-center px-6 py-32">
-        <div className="max-w-7xl mx-auto w-full">
-          <div id="about" className="text-center">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-16 gradient-text">关于我</h2>
-            
-            <div className="max-w-5xl mx-auto">
-              <div className="glass-card p-12 md:p-16 lg:p-20 mb-16">
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-16 leading-relaxed max-w-4xl mx-auto">
-                  我是一名充满激情的全栈开发者，专注于创造令人惊叹的数字体验。
-                  <br className="hidden md:block" />
-                  在代码的世界里，我不仅是一名工程师，更是一名数字艺术家。
-                </p>
-                
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                  <div className="text-center group">
-                    <div className="text-4xl lg:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
-                    <div className="text-base lg:text-lg text-gray-400 font-medium">快速开发</div>
-                    <div className="text-sm text-gray-500 mt-2 hidden lg:block">高效的开发流程</div>
+      <section id="about" className="relative z-20 min-h-screen flex items-center justify-center px-6 py-20">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-16 gradient-text">技术专长</h2>
+
+          {/* 简介 */}
+          <div className="glass-card p-8 md:p-12 mb-12">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+              专注于WebGL地图开发与数据可视化的全栈工程师，致力于构建高性能的地理信息系统。
+              从CesiumJS到MapboxGL，从Vue组件库到React生态，探索地图技术的无限可能。
+            </p>
+
+            {/* 核心技能 */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { icon: '🌍', title: 'WebGL地图', desc: '高性能地理可视化' },
+                { icon: '📊', title: '数据可视化', desc: '复杂数据的直观呈现' },
+                { icon: '🧩', title: '组件库开发', desc: '可复用的地图组件' },
+                { icon: '🛰️', title: '遥感数据', desc: '卫星数据解析处理' }
+              ].map((item) => (
+                <div key={item.title} className="text-center group">
+                  <div className="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
                   </div>
-                  <div className="text-center group">
-                    <div className="text-4xl lg:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎨</div>
-                    <div className="text-base lg:text-lg text-gray-400 font-medium">创意设计</div>
-                    <div className="text-sm text-gray-500 mt-2 hidden lg:block">独特的视觉体验</div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="text-4xl lg:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🔧</div>
-                    <div className="text-base lg:text-lg text-gray-400 font-medium">技术专精</div>
-                    <div className="text-sm text-gray-500 mt-2 hidden lg:block">深度技术掌握</div>
-                  </div>
-                  <div className="text-center group">
-                    <div className="text-4xl lg:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🌟</div>
-                    <div className="text-base lg:text-lg text-gray-400 font-medium">用户体验</div>
-                    <div className="text-sm text-gray-500 mt-2 hidden lg:block">以用户为中心</div>
-                  </div>
+                  <div className="text-sm md:text-base text-gray-400 font-medium mb-1">{item.title}</div>
+                  <div className="text-xs text-gray-500">{item.desc}</div>
                 </div>
-              </div>
-              
-              {/* 技能标签 */}
-              <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
-                {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'UI/UX', 'WebGL', 'Three.js'].map((skill) => (
-                  <span key={skill} className="px-4 py-2 lg:px-6 lg:py-3 text-sm lg:text-base bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full text-blue-300 hover:border-blue-400/40 transition-colors duration-300">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              ))}
             </div>
+          </div>
+
+          {/* 技能标签 */}
+          <div className="flex flex-wrap justify-center gap-3">
+            {['CesiumJS', 'MapboxGL', 'WebGL', 'Vue.js', 'React', 'TypeScript', 'Python', 'Rust', 'Three.js', 'GIS', 'Docker', 'Flutter'].map((skill) => (
+              <span key={skill} className="px-4 py-2 text-sm bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full text-blue-300 hover:border-blue-400/40 transition-colors duration-300">
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 项目 Section */}
-      <section className="relative z-20 min-h-screen flex items-center justify-center px-6 py-32">
-        <div className="max-w-7xl mx-auto w-full">
-          <div id="projects" className="text-center">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-20 gradient-text">精选项目</h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-12">
-              {[
-                { 
-                  title: '星际导航系统', 
-                  desc: '基于WebGL的3D星空导航界面，融合了现代设计与交互体验', 
-                  icon: '🌌',
-                  tags: ['Three.js', 'WebGL', 'React']
-                },
-                { 
-                  title: '智能数据可视化', 
-                  desc: '实时数据分析平台，将复杂数据转化为直观的视觉呈现', 
-                  icon: '📊',
-                  tags: ['D3.js', 'Python', 'AI']
-                },
-                { 
-                  title: '未来UI组件库', 
-                  desc: '下一代组件库，专为现代Web应用设计的可复用组件系统', 
-                  icon: '🎨',
-                  tags: ['React', 'TypeScript', 'Storybook']
-                }
-              ].map((project) => (
-                <div key={project.title} className="glass-card p-8 lg:p-10 group cursor-pointer h-full">
-                  <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mb-8 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-                    <div className="text-5xl lg:text-6xl group-hover:scale-110 transition-transform duration-300">{project.icon}</div>
-                  </div>
-                  
-                  <div className="text-left">
-                    <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text">{project.title}</h3>
-                    <p className="text-gray-400 text-base lg:text-lg mb-6 leading-relaxed">
-                      {project.desc}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-3">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1.5 text-sm bg-blue-500/20 text-blue-400 rounded-lg border border-blue-500/30">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+      <section id="projects" className="relative z-20 min-h-screen flex items-center justify-center px-6 py-20">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-16 gradient-text">精选项目</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'MapVue',
+                desc: '基于Vue3的MapboxGL组件库，提供完整的地图开发解决方案',
+                icon: '🗺️',
+                tags: ['Vue3', 'MapboxGL', 'TypeScript'],
+                link: 'https://github.com/timeroute/mapvue'
+              },
+              {
+                title: 'TimeMap',
+                desc: '基于WebGL的高性能地图引擎，支持大数据量地理可视化',
+                icon: '🌍',
+                tags: ['WebGL', 'TypeScript', 'Canvas'],
+                link: 'https://github.com/timeroute/timemap'
+              },
+              {
+                title: 'Vue-Cesium',
+                desc: 'CesiumJS的Vue3组件封装，用于构建3D地球应用',
+                icon: '🌐',
+                tags: ['CesiumJS', 'Vue3', '3D'],
+                link: 'https://github.com/timeroute/vue-cesium'
+              },
+              {
+                title: 'Cesium-Extends',
+                desc: 'CesiumJS扩展库，提供事件订阅、数据加载、绘图工具等功能',
+                icon: '🛰️',
+                tags: ['CesiumJS', 'JavaScript', 'GIS'],
+                link: 'https://github.com/timeroute/cesium-extends'
+              },
+              {
+                title: 'GaoFen-Parser',
+                desc: '遥感卫星原始数据解析工具，支持多种卫星数据格式',
+                icon: '📡',
+                tags: ['Python', 'Remote Sensing', 'Data'],
+                link: 'https://github.com/timeroute/gaofen-parser'
+              },
+              {
+                title: 'Flutter Map SDK',
+                desc: 'Flutter原生地图SDK集成，支持Android原生地图显示',
+                icon: '📱',
+                tags: ['Flutter', 'Android', 'Java'],
+                link: 'https://github.com/timeroute/flutter_with_map'
+              }
+            ].map((project) => (
+              <a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-card p-6 group cursor-pointer block hover:no-underline"
+              >
+                {/* 项目图标 */}
+                <div className="aspect-square bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mb-4 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                  <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                    {project.icon}
                   </div>
                 </div>
-              ))}
-            </div>
-            
-            {/* 查看更多按钮 */}
-            <div className="mt-16">
-              <button type="button" className="cosmic-button text-lg px-10 py-4">
-                查看所有项目
-              </button>
-            </div>
+
+                {/* 项目信息 */}
+                <div className="text-left">
+                  <h3 className="text-lg font-semibold mb-2 gradient-text">{project.title}</h3>
+                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                    {project.desc}
+                  </p>
+
+                  {/* 技术标签 */}
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="px-2 py-1 text-xs bg-blue-500/20 text-blue-400 rounded border border-blue-500/30">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* 查看链接 */}
+                  <div className="flex items-center text-blue-400 text-xs font-medium">
+                    <span>查看项目</span>
+                    <svg className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* 查看更多按钮 */}
+          <div className="mt-12">
+            <button type="button" className="cosmic-button">
+              查看所有项目
+            </button>
           </div>
         </div>
       </section>
 
       {/* 联系 Section */}
-      <section className="relative z-20 min-h-screen flex items-center justify-center px-6 py-32">
-        <div className="max-w-7xl mx-auto w-full">
-          <div id="contact" className="text-center">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-16 gradient-text">联系我</h2>
-            
-            <div className="max-w-5xl mx-auto">
-              <div className="glass-card p-12 md:p-16 lg:p-20">
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-20 leading-relaxed max-w-4xl mx-auto">
-                  准备好开始一个令人兴奋的项目了吗？
-                  <br className="hidden md:block" />
-                  让我们一起创造些什么吧！
-                </p>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
-                  <div className="text-center group">
-                    <div className="text-5xl lg:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">📧</div>
-                    <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text-blue">邮箱</h3>
-                    <p className="text-gray-400 text-lg lg:text-xl">hello@zhujia.dev</p>
-                    <p className="text-gray-500 text-sm mt-2">随时欢迎您的来信</p>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="text-5xl lg:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">💼</div>
-                    <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text-blue">LinkedIn</h3>
-                    <p className="text-gray-400 text-lg lg:text-xl">@zhujia</p>
-                    <p className="text-gray-500 text-sm mt-2">专业网络连接</p>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="text-5xl lg:text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🐙</div>
-                    <h3 className="text-xl lg:text-2xl font-semibold mb-4 gradient-text-blue">GitHub</h3>
-                    <p className="text-gray-400 text-lg lg:text-xl">@zhujia</p>
-                    <p className="text-gray-500 text-sm mt-2">开源项目合作</p>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <button type="button" className="cosmic-button text-lg px-10 py-4">
-                    开始合作
-                  </button>
-                  <button type="button" className="px-10 py-4 text-lg border border-gray-600 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition-all duration-300">
-                    预约通话
-                  </button>
-                </div>
+      <section id="contact" className="relative z-20 min-h-screen flex items-center justify-center px-6 py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-16 gradient-text">联系我</h2>
+
+          <div className="glass-card p-8 md:p-12">
+            <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed">
+              对地图开发或数据可视化项目感兴趣？
+              <br className="hidden md:block" />
+              让我们一起探索地理信息技术的无限可能！
+            </p>
+
+            {/* 联系方式 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center group">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🌐</div>
+                <h3 className="text-lg font-semibold mb-2 gradient-text-blue">个人网站</h3>
+                <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+                  zhujia.info
+                </a>
+                <p className="text-gray-500 text-sm mt-1">技术博客与项目展示</p>
               </div>
+
+              <div className="text-center group">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🐙</div>
+                <h3 className="text-lg font-semibold mb-2 gradient-text-blue">GitHub</h3>
+                <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
+                  @timeroute
+                </a>
+                <p className="text-gray-500 text-sm mt-1">开源项目与代码分享</p>
+              </div>
+
+              <div className="text-center group">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📍</div>
+                <h3 className="text-lg font-semibold mb-2 gradient-text-blue">位置</h3>
+                <p className="text-gray-400">北京，中国</p>
+                <p className="text-gray-500 text-sm mt-1">欢迎技术交流与合作</p>
+              </div>
+            </div>
+
+            {/* 行动按钮 */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="cosmic-button no-underline">
+                查看GitHub
+              </a>
+              <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-gray-600 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 no-underline">
+                访问博客
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* 背景装饰元素 */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-gray-700 rounded-full opacity-30"></div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 border border-gray-700 rounded-full opacity-20"></div>
-      <div className="absolute top-1/2 left-5 w-2 h-20 bg-gradient-to-b from-blue-500 to-transparent opacity-40"></div>
-      <div className="absolute top-1/3 right-5 w-2 h-16 bg-gradient-to-b from-purple-500 to-transparent opacity-40"></div>
+      <div className="absolute top-20 left-10 w-32 h-32 border border-gray-700 rounded-full opacity-30" />
+      <div className="absolute bottom-20 right-10 w-24 h-24 border border-gray-700 rounded-full opacity-20" />
+      <div className="absolute top-1/2 left-5 w-2 h-20 bg-gradient-to-b from-blue-500 to-transparent opacity-40" />
+      <div className="absolute top-1/3 right-5 w-2 h-16 bg-gradient-to-b from-purple-500 to-transparent opacity-40" />
     </div>
   );
 }
