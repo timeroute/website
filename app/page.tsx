@@ -81,10 +81,10 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-max">
-                <button type="button" className="btn-tech text-sm sm:text-base w-full sm:w-auto">
+                <button type="button" className="btn-tech text-sm sm:text-base w-full sm:w-auto" aria-label="Initialize Connection">
                   [INIT_LINK] 建立连接
                 </button>
-                <button type="button" className="btn-tech btn-tech-alt text-sm sm:text-base w-full sm:w-auto">
+                <button type="button" className="btn-tech btn-tech-alt text-sm sm:text-base w-full sm:w-auto" aria-label="Download Resume Specs">
                   [DL_SPECS] 下载简历
                 </button>
               </div>
@@ -93,7 +93,7 @@ export default function Home() {
             {/* Right/Stats Content */}
             <div className="lg:col-span-4 p-6 lg:p-12 flex flex-col justify-between bg-[#050505]">
               <div className="mb-12">
-                <div className="text-xs text-slate-500 font-mono mb-4">/// TECH_STACK</div>
+                <div className="text-xs text-slate-500 font-mono mb-4">{`/// TECH_STACK`}</div>
                 <ul className="space-y-6">
                   {['WebGL / Canvas', 'CesiumJS / 3D', 'React / Next.js', 'Vue3 Ecosystem', 'Rust / WebAssembly'].map((skill, i) => (
                     <li key={skill} className="flex items-center gap-4 group">
@@ -159,7 +159,7 @@ export default function Home() {
           
           <div className="w-full px-6 lg:px-12 py-8 bg-[#0a0a0a] border-t border-[#222]">
             <div className="flex flex-wrap gap-4 items-center">
-              <span className="text-xs text-slate-500 font-mono mr-4">/// SKILLS</span>
+              <span className="text-xs text-slate-500 font-mono mr-4">{`/// SKILLS`}</span>
               {['CesiumJS', 'MapboxGL', 'Three.js', 'Vue.js', 'React', 'TypeScript', 'Python', 'Rust', 'Docker', 'Flutter'].map((skill) => (
                 <span key={skill} className="text-sm font-mono tracking-widest text-slate-300 hover:text-chartreuse transition-colors cursor-default">
                   [{skill}]
@@ -239,10 +239,10 @@ export default function Home() {
                 System ready for new inputs. Interested in geographic information systems or data visualization? Let&apos;s explore the boundaries of spatial tech.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-max">
-                <a href="https://github.com/zhujia" target="_blank" rel="noopener noreferrer" className="btn-tech py-4 px-8 text-base text-center">
+                <a href="https://github.com/zhujia" target="_blank" rel="noopener noreferrer" aria-label="Visit Zhu Jia's GitHub Profile" className="btn-tech py-4 px-8 text-base text-center">
                   Access Git Node
                 </a>
-                <a href="https://zhujia.me" target="_blank" rel="noopener noreferrer" className="btn-tech btn-tech-alt py-4 px-8 text-base text-center">
+                <a href="https://zhujia.me" target="_blank" rel="noopener noreferrer" aria-label="Visit Zhu Jia's Personal Website" className="btn-tech btn-tech-alt py-4 px-8 text-base text-center">
                   Ping Server
                 </a>
               </div>
@@ -251,19 +251,19 @@ export default function Home() {
             <div className="p-8 lg:p-20 flex flex-col justify-center bg-[#0a0a0a]">
               <div className="space-y-8 max-w-md w-full mx-auto">
                 <div className="border-b border-[#333] pb-6 group">
-                  <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">/// SYS.WEB</div>
+                  <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">{`/// SYS.WEB`}</div>
                   <a href="https://zhujia.me" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-slate-200 font-space hover:text-chartreuse transition-colors">
                     zhujia.me
                   </a>
                 </div>
                 <div className="border-b border-[#333] pb-6 group">
-                  <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">/// SYS.GIT</div>
+                  <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">{`/// SYS.GIT`}</div>
                   <a href="https://github.com/zhujia" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-slate-200 font-space hover:text-chartreuse transition-colors">
                     @zhujia
                   </a>
                 </div>
                 <div className="border-b border-[#333] pb-6 group">
-                  <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">/// SYS.LOC</div>
+                  <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">{`/// SYS.LOC`}</div>
                   <div className="text-2xl md:text-3xl text-slate-200 font-space">
                     Beijing, CN
                   </div>
