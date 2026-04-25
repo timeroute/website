@@ -59,7 +59,7 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white">
-                Zhu Jia <span className="text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle ml-2">朱佳</span>
+                Zhu Jia <span className="text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle ml-2">朱嘉</span>
               </h1>
               
               <div className="flex items-center gap-4 mb-8">
