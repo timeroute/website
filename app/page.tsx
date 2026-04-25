@@ -182,12 +182,12 @@ export default function Home() {
 
           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
             {[
-              { title: 'MapVue', desc: 'Vue3 MapboxGL component library.', tags: ['Vue3', 'MapboxGL', 'TS'], link: 'https://github.com/timeroute/mapvue' },
-              { title: 'TimeMap', desc: 'WebGL high-perf map engine for big data.', tags: ['WebGL', 'Canvas', 'TS'], link: 'https://github.com/timeroute/timemap' },
-              { title: 'Vue-Cesium', desc: 'CesiumJS wrapper for Vue3 3D earth apps.', tags: ['CesiumJS', 'Vue3'], link: 'https://github.com/timeroute/vue-cesium' },
-              { title: 'Cesium-Extends', desc: 'Extensions: event sub, data loading, drawing.', tags: ['CesiumJS', 'GIS'], link: 'https://github.com/timeroute/cesium-extends' },
-              { title: 'GaoFen-Parser', desc: 'Remote sensing satellite data parser.', tags: ['Python', 'Data'], link: 'https://github.com/timeroute/gaofen-parser' },
-              { title: 'Flutter Map SDK', desc: 'Native map SDK integration for Flutter.', tags: ['Flutter', 'Android'], link: 'https://github.com/timeroute/flutter_with_map' }
+              { title: 'MapVue', desc: 'Vue3 MapboxGL component library.', tags: ['Vue3', 'MapboxGL', 'TS'], link: 'https://github.com/zhujia/mapvue' },
+              { title: 'TimeMap', desc: 'WebGL high-perf map engine for big data.', tags: ['WebGL', 'Canvas', 'TS'], link: 'https://github.com/zhujia/timemap' },
+              { title: 'Vue-Cesium', desc: 'CesiumJS wrapper for Vue3 3D earth apps.', tags: ['CesiumJS', 'Vue3'], link: 'https://github.com/zhujia/vue-cesium' },
+              { title: 'Cesium-Extends', desc: 'Extensions: event sub, data loading, drawing.', tags: ['CesiumJS', 'GIS'], link: 'https://github.com/zhujia/cesium-extends' },
+              { title: 'GaoFen-Parser', desc: 'Remote sensing satellite data parser.', tags: ['Python', 'Data'], link: 'https://github.com/zhujia/gaofen-parser' },
+              { title: 'Flutter Map SDK', desc: 'Native map SDK integration for Flutter.', tags: ['Flutter', 'Android'], link: 'https://github.com/zhujia/flutter_with_map' }
             ].map((project, idx) => (
               <a
                 key={project.title}
@@ -239,10 +239,10 @@ export default function Home() {
                 System ready for new inputs. Interested in geographic information systems or data visualization? Let&apos;s explore the boundaries of spatial tech.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-max">
-                <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="btn-tech py-4 px-8 text-base text-center">
+                <a href="https://github.com/zhujia" target="_blank" rel="noopener noreferrer" className="btn-tech py-4 px-8 text-base text-center">
                   Access Git Node
                 </a>
-                <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="btn-tech btn-tech-alt py-4 px-8 text-base text-center">
+                <a href="https://zhujia.me" target="_blank" rel="noopener noreferrer" className="btn-tech btn-tech-alt py-4 px-8 text-base text-center">
                   Ping Server
                 </a>
               </div>
@@ -252,14 +252,14 @@ export default function Home() {
               <div className="space-y-8 max-w-md w-full mx-auto">
                 <div className="border-b border-[#333] pb-6 group">
                   <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">/// SYS.WEB</div>
-                  <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-slate-200 font-space hover:text-chartreuse transition-colors">
-                    zhujia.info
+                  <a href="https://zhujia.me" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-slate-200 font-space hover:text-chartreuse transition-colors">
+                    zhujia.me
                   </a>
                 </div>
                 <div className="border-b border-[#333] pb-6 group">
                   <div className="text-xs font-mono text-slate-500 mb-3 tracking-widest group-hover:text-chartreuse transition-colors">/// SYS.GIT</div>
-                  <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-slate-200 font-space hover:text-chartreuse transition-colors">
-                    @timeroute
+                  <a href="https://github.com/zhujia" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-slate-200 font-space hover:text-chartreuse transition-colors">
+                    @zhujia
                   </a>
                 </div>
                 <div className="border-b border-[#333] pb-6 group">

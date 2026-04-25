@@ -86,16 +86,19 @@ pnpm start
 
 ## 🌐 在线访问
 
-- **个人网站**: [zhujia.info](https://zhujia.info)
-- **GitHub**: [@timeroute](https://github.com/timeroute)
+- **个人网站**: [zhujia.me](https://zhujia.me)
+- **GitHub**: [@zhujia](https://github.com/zhujia)
 
-## 📊 主要项目
+## 🚀 项目展示
 
-- **[MapVue](https://github.com/timeroute/mapvue)**: Vue3 MapboxGL 组件库
-- **[TimeMap](https://github.com/timeroute/timemap)**: WebGL 地图引擎
-- **[Vue-Cesium](https://github.com/timeroute/vue-cesium)**: CesiumJS Vue3 组件
-- **[Cesium-Extends](https://github.com/timeroute/cesium-extends)**: CesiumJS 扩展库
-- **[GaoFen-Parser](https://github.com/timeroute/gaofen-parser)**: 遥感数据解析工具
+以下是一些代表性的 WebGL 和 GIS 开源项目：
+
+- **[MapVue](https://github.com/zhujia/mapvue)**: Vue3 MapboxGL 组件库
+- **[TimeMap](https://github.com/zhujia/timemap)**: WebGL 地图引擎
+- **[Vue-Cesium](https://github.com/zhujia/vue-cesium)**: CesiumJS Vue3 组件
+- **[Cesium-Extends](https://github.com/zhujia/cesium-extends)**: CesiumJS 扩展库
+- **[GaoFen-Parser](https://github.com/zhujia/gaofen-parser)**: 遥感数据解析工具
+- **[Flutter Map SDK](https://github.com/zhujia/flutter_with_map)**: 跨平台地图集成
 
 ## 🤝 贡献
 

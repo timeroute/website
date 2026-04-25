@@ -70,7 +70,7 @@ export default function Navigation() {
               onClick={() => scrollToSection('home')}
             >
               <div className="w-3 h-3 bg-chartreuse animate-pulse" />
-              TIMEROUTE
+              ZHU JIA
             </button>
 
             {/* Desktop Nav */}
