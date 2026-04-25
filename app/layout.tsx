@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "时空路由器 - TimeRoute | 地图可视化与前端开发专家",
+  title: "TimeRoute | WebGL & Data Visualization",
   description: "专注于WebGL地图开发、数据可视化、Vue/React组件库开发的全栈工程师。敦兮其若朴，旷兮其若谷。",
   keywords: "WebGL, 地图开发, 数据可视化, Vue, React, CesiumJS, MapboxGL, 前端开发",
   authors: [{ name: "时空路由器", url: "https://zhujia.info" }],
@@ -32,9 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-mono bg-obsidian text-slate-300`}
       >
         {children}
       </body>
