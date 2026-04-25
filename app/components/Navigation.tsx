@@ -11,7 +11,6 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // 检测当前活跃的section
       const sections = ['home', 'about', 'projects', 'contact'];
       const scrollPosition = window.scrollY;
 
@@ -21,7 +20,7 @@ export default function Navigation() {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetTop + offsetHeight - 100) {
             setActiveSection(section);
             break;
           }
@@ -34,10 +33,10 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { id: 'home', label: '首页', icon: '🏠' },
-    { id: 'about', label: '技术栈', icon: '⚡' },
-    { id: 'projects', label: '项目', icon: '🗺️' },
-    { id: 'contact', label: '联系', icon: '📡' },
+    { id: 'home', label: 'SYS.HOME', num: '01' },
+    { id: 'about', label: 'SYS.SPECS', num: '02' },
+    { id: 'projects', label: 'SYS.DATA', num: '03' },
+    { id: 'contact', label: 'SYS.LINK', num: '04' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -50,122 +49,97 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-500 ${isScrolled
-          ? 'bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-blue-500/10'
-          : 'bg-transparent'
+      <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 border-b ${isScrolled
+          ? 'bg-obsidian/90 backdrop-blur-md border-[#1a1a1a]'
+          : 'bg-transparent border-transparent'
         }`}>
-        <div className="max-w-6xl mx-auto px-6 py-4 h-full flex">
+        <div className="max-w-7xl mx-auto px-6 py-4 h-full flex">
           <div className="flex-1 flex items-center justify-between">
             {/* Logo */}
             <button
               type="button"
-              className="text-2xl font-bold gradient-text cursor-pointer hover:scale-110 transition-transform duration-300 bg-transparent border-none"
+              className="text-xl font-space font-bold tracking-widest cursor-pointer hover:text-chartreuse transition-colors duration-300 bg-transparent border-none flex items-center gap-2"
               onClick={() => scrollToSection('home')}
             >
-              <span className="relative">
-                TimeRoute
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur opacity-0 hover:opacity-100 transition-opacity duration-300" />
-              </span>
+              <div className="w-3 h-3 bg-chartreuse animate-pulse" />
+              TIMEROUTE
             </button>
 
-            {/* 桌面端导航链接 */}
+            {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <button
                   type="button"
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-4 py-2 rounded-full text-lg font-medium transition-all duration-300 group ${activeSection === item.id
-                      ? 'text-blue-400 bg-blue-500/10'
-                      : 'text-gray-300 hover:text-blue-400 hover:bg-white/5'
+                  className={`relative px-2 py-1 text-sm font-mono tracking-wider transition-all duration-300 group flex items-center gap-2 ${activeSection === item.id
+                      ? 'text-chartreuse'
+                      : 'text-slate-400 hover:text-slate-200'
                     }`}
                 >
-                  <span className="flex items-center gap-2">
-                    <span className="text-xs">{item.icon}</span>
-                    {item.label}
-                  </span>
-
-                  {/* 活跃指示器 */}
+                  <span className="text-[10px] opacity-50 group-hover:opacity-100">{item.num}</span>
+                  {item.label}
+                  
+                  {/* Active Indicator */}
                   {activeSection === item.id && (
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-400 rounded-full" />
+                    <div className="absolute -bottom-1 left-0 w-full h-[1px] bg-chartreuse" />
                   )}
-
-                  {/* 悬浮效果 */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               ))}
             </div>
 
-            {/* 移动端菜单按钮 */}
+            {/* Mobile Menu Button */}
             <button
               type="button"
-              className="md:hidden relative p-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
+              className="md:hidden relative p-2 text-slate-300 hover:text-chartreuse transition-colors duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? '关闭菜单' : '打开菜单'}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <div className="w-6 h-6 relative">
-                <span className={`absolute block w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 top-3' : 'top-1'
-                  }`} />
-                <span className={`absolute block w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'top-3'
-                  }`} />
-                <span className={`absolute block w-full h-0.5 bg-current transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 top-3' : 'top-5'
-                  }`} />
+              <div className="w-6 h-4 relative flex flex-col justify-between">
+                <span className={`block h-[1px] bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+                <span className={`block h-[1px] bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+                <span className={`block h-[1px] bg-current transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
               </div>
             </button>
           </div>
         </div>
       </nav>
 
-      {/* 移动端菜单 */}
-      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'visible' : 'invisible'
-        }`}>
-        {/* 背景遮罩 */}
+      {/* Mobile Menu */}
+      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'visible' : 'invisible'}`}>
         <button
           type="button"
-          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 border-none ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'
-            }`}
+          className={`absolute inset-0 bg-obsidian/80 backdrop-blur-sm transition-opacity duration-300 border-none ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setIsMobileMenuOpen(false)}
-          aria-label="关闭菜单"
+          aria-label="Close menu"
         />
 
-        {/* 菜单内容 */}
-        <div className={`absolute top-0 right-0 h-full w-80 max-w-[80vw] bg-black/90 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}>
-          <div className="p-6 pt-20">
-            <div className="space-y-4">
+        <div className={`absolute top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-[#1a1a1a] transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="p-6 pt-24">
+            <div className="space-y-6">
               {navItems.map((item, index) => (
                 <button
                   type="button"
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 group ${activeSection === item.id
-                      ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-blue-400'
+                  className={`w-full text-left p-4 border transition-all duration-300 ${activeSection === item.id
+                      ? 'border-chartreuse text-chartreuse bg-chartreuse/5'
+                      : 'border-[#1a1a1a] text-slate-400 hover:border-slate-700 hover:text-slate-200'
                     }`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl">{item.icon}</span>
-                    <div>
-                      <div className="font-medium">{item.label}</div>
-                      <div className="text-xs text-gray-500 group-hover:text-gray-400">
-                        {item.id === 'home' && '回到顶部'}
-                        {item.id === 'about' && '了解技术栈'}
-                        {item.id === 'projects' && '查看项目'}
-                        {item.id === 'contact' && '取得联系'}
-                      </div>
-                    </div>
+                  <div className="flex items-center gap-4 font-mono">
+                    <span className="text-xs opacity-50">{item.num}</span>
+                    <div className="font-medium tracking-widest">{item.label}</div>
                   </div>
                 </button>
               ))}
             </div>
 
-            {/* 移动端额外信息 */}
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <div className="text-center text-gray-400 text-sm">
-                <div className="gradient-text-blue font-medium mb-2">时空路由器的地图世界</div>
-                <div>敦兮其若朴 · 旷兮其若谷</div>
-              </div>
+            <div className="mt-12 pt-8 border-t border-[#1a1a1a] font-mono text-xs text-slate-500">
+              <div className="text-chartreuse mb-2">STATUS: ONLINE</div>
+              <div>LOC: BEIJING, CN</div>
+              <div className="mt-4">V_2.0.4</div>
             </div>
           </div>
         </div>

@@ -2,22 +2,17 @@
 
 import { useEffect, useRef } from 'react';
 
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  life: number;
-  maxLife: number;
-}
-
 export default function ParticleEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
+  const mouseRef = useRef({ x: -1000, y: -1000 });
   const animationRef = useRef<number>(0);
-  const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    // 简单的设备检测：如果是触摸设备，则不渲染雷达十字，以防触摸冲突
+    if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -32,21 +27,8 @@ export default function ParticleEffect() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // 鼠标移动事件
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
-      
-      // 在鼠标位置创建粒子
-      for (let i = 0; i < 3; i++) {
-        particlesRef.current.push({
-          x: e.clientX + (Math.random() - 0.5) * 20,
-          y: e.clientY + (Math.random() - 0.5) * 20,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
-          life: 60,
-          maxLife: 60,
-        });
-      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -54,25 +36,31 @@ export default function ParticleEffect() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 更新和绘制粒子
-      particlesRef.current = particlesRef.current.filter((particle) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.life--;
+      const { x, y } = mouseRef.current;
 
-        const alpha = particle.life / particle.maxLife;
-        const size = alpha * 3;
+      if (x > -100 && y > -100) {
+        ctx.strokeStyle = 'rgba(223, 255, 0, 0.15)'; // chartreuse
+        ctx.lineWidth = 1;
 
-        ctx.save();
-        ctx.globalAlpha = alpha;
-        ctx.fillStyle = '#4facfe';
+        // Draw Crosshair
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
 
-        return particle.life > 0;
-      });
+        // Draw Center Target
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.4)'; // cyan
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Draw Coordinate Text
+        ctx.fillStyle = 'rgba(223, 255, 0, 0.5)';
+        ctx.font = '10px monospace';
+        ctx.fillText(`X:${x} Y:${y}`, x + 15, y - 15);
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -91,7 +79,7 @@ export default function ParticleEffect() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-10"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-30 mix-blend-screen"
       style={{ background: 'transparent' }}
     />
   );

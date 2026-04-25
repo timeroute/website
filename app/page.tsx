@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import StarField from './components/StarField';
 import Navigation from './components/Navigation';
 import ParticleEffect from './components/ParticleEffect';
+import StarField from './components/StarField';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -17,349 +17,259 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // 生成星星
-  const generateStars = () => {
-    const stars = [];
-    for (let i = 0; i < 100; i++) {
-      const size = Math.random() * 3 + 1;
-      const left = Math.random() * 100;
-      const top = Math.random() * 100;
-      const delay = Math.random() * 3;
-
-      stars.push(
-        <div
-          key={i}
-          className="star"
-          style={{
-            width: `${size}px`,
-            height: `${size}px`,
-            left: `${left}%`,
-            top: `${top}%`,
-            animationDelay: `${delay}s`,
-          }}
-        />
-      );
-    }
-    return stars;
-  };
-
-  // 生成流星
-  const generateShootingStars = () => {
-    const shootingStars = [];
-    for (let i = 0; i < 3; i++) {
-      const delay = Math.random() * 10;
-      const duration = Math.random() * 3 + 2;
-
-      shootingStars.push(
-        <div
-          key={i}
-          className="shooting-star"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 50}%`,
-            animationDelay: `${delay}s`,
-            animationDuration: `${duration}s`,
-          }}
-        />
-      );
-    }
-    return shootingStars;
-  };
-
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* 导航栏 */}
+    <div className="min-h-screen bg-obsidian text-slate-300 font-mono relative selection:bg-chartreuse selection:text-black">
+      {/* CRT Scanline */}
+      <div className="scanline" />
+
+      {/* Navigation */}
       <Navigation />
 
-      {/* 动态星空背景 */}
+      {/* Background Effects */}
       <StarField />
-
-      {/* 粒子效果 */}
       <ParticleEffect />
+      
+      {/* Static Grid Background */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-30" />
 
-      {/* 静态星空装饰 */}
-      <div className="stars">
-        {generateStars()}
-        {generateShootingStars()}
-      </div>
-
-      {/* 鼠标跟随光晕 */}
+      {/* Mouse Follow Glow (Utilitarian variant) */}
       <div
-        className="fixed pointer-events-none z-10 w-96 h-96 rounded-full opacity-20"
+        className="fixed pointer-events-none z-10 w-[500px] h-[500px] rounded-full opacity-10 mix-blend-screen"
         style={{
-          background: 'radial-gradient(circle, rgba(79, 172, 254, 0.3) 0%, transparent 70%)',
-          left: mousePosition.x - 192,
-          top: mousePosition.y - 192,
-          transition: 'all 0.1s ease-out',
+          background: 'radial-gradient(circle, var(--color-cyan-glow) 0%, transparent 60%)',
+          left: mousePosition.x - 250,
+          top: mousePosition.y - 250,
+          transition: 'transform 0.1s ease-out',
         }}
       />
 
-      {/* 首页 Hero Section */}
-      <section id="home" className="relative z-20 min-h-screen flex items-center justify-center px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* 主标题 */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl mb-8 neon-glow">
-            Zhu Jia
-          </h1>
-          
-          {/* 副标题 */}
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 leading-relaxed">
-            专注于<span className="gradient-text-blue">WebGL地图开发</span>与数据可视化的全栈工程师
-          </p>
-          
-          {/* 座右铭 */}
-          <p className="text-lg md:text-xl text-gray-400 mb-12 italic">
-            "敦兮其若朴，旷兮其若谷"
-          </p>
+      {/* Main Content */}
+      <main className="relative z-20">
+        
+        {/* HERO SECTION */}
+        <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+          <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8">
+              <div className="inline-block border border-chartreuse/30 bg-chartreuse/5 px-3 py-1 mb-6">
+                <span className="text-chartreuse text-xs tracking-widest uppercase flex items-center gap-2">
+                  <span className="w-2 h-2 bg-chartreuse animate-blink" />
+                  System Initialization Complete
+                </span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span>Zhu Jia</span>
+                <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle">朱嘉</span>
+              </h1>
+              
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                <div className="hidden sm:block h-[1px] w-12 bg-chartreuse" />
+                <div className="sm:hidden w-8 h-[2px] bg-chartreuse" />
+                <p className="text-base sm:text-lg md:text-xl text-cyan-glow font-mono tracking-widest uppercase">
+                  WebGL Map & Data Vis Engineer
+                </p>
+              </div>
+              
+              <p className="text-slate-400 max-w-2xl mb-12 leading-relaxed text-sm md:text-base border-l border-slate-800 pl-4 font-zh tracking-wide">
+                "敦兮其若朴，旷兮其若谷" <br/>
+                <span className="text-slate-500 mt-2 block">Focusing on high-performance geographic information systems, from CesiumJS to MapboxGL, exploring the infinite possibilities of spatial data.</span>
+              </p>
 
-          {/* 技能标签 */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {['WebGL地图开发', '数据可视化', 'Vue/React组件库', 'CesiumJS专家'].map((skill) => (
-              <span key={skill} className="px-6 py-3 glass-card text-sm md:text-base">
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          {/* 导航卡片 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div className="glass-card p-8 text-center group cursor-pointer">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🗺️</div>
-              <h3 className="text-lg font-semibold mb-2 gradient-text">地图项目</h3>
-              <p className="text-gray-400 text-sm">WebGL地图引擎与可视化组件</p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button type="button" className="btn-tech font-space tracking-wider w-full sm:w-auto">
+                  建立连接 [INIT_LINK]
+                </button>
+                <button type="button" className="btn-tech btn-tech-alt font-space tracking-wider w-full sm:w-auto">
+                  下载简历 [DL_SPECS]
+                </button>
+              </div>
             </div>
-            <div className="glass-card p-8 text-center group cursor-pointer">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
-              <h3 className="text-lg font-semibold mb-2 gradient-text">技术栈</h3>
-              <p className="text-gray-400 text-sm">从前端框架到地理信息系统</p>
+
+            {/* Tech Decoration Panel */}
+            <div className="hidden lg:block lg:col-span-4 relative h-[400px]">
+              <div className="absolute inset-0 tech-panel p-6 flex flex-col justify-between">
+                <div className="flex justify-between items-start border-b border-[#1a1a1a] pb-4">
+                  <span className="text-xs text-slate-500">SYS.DIAGNOSTICS</span>
+                  <span className="text-chartreuse text-xs animate-pulse">REC</span>
+                </div>
+                <div className="space-y-4">
+                  {['WebGL', 'CesiumJS', 'React', 'Vue3', 'Rust'].map((skill, i) => (
+                    <div key={skill} className="flex items-center gap-3 text-sm">
+                      <span className="text-slate-600">0{i + 1}</span>
+                      <div className="flex-1 h-[1px] bg-[#1a1a1a]" />
+                      <span className="text-slate-300 font-space tracking-wider">{skill}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t border-[#1a1a1a] pt-4 flex justify-between text-xs">
+                  <span className="text-slate-500">MEM: OK</span>
+                  <span className="text-slate-500">CPU: OK</span>
+                </div>
+              </div>
             </div>
-            <div className="glass-card p-8 text-center group cursor-pointer">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📡</div>
-              <h3 className="text-lg font-semibold mb-2 gradient-text">开源贡献</h3>
-              <p className="text-gray-400 text-sm">GitHub上的开源项目与社区</p>
+            
+          </div>
+        </section>
+
+        {/* SPECS SECTION */}
+        <section id="about" className="min-h-screen flex items-center justify-center px-6 py-24 relative">
+          <div className="max-w-6xl w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12 sm:mb-16">
+              <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tighter uppercase">
+                Technical_Specs
+              </h2>
+              <div className="hidden sm:block flex-1 h-[1px] bg-[#1a1a1a]" />
+              <div className="sm:hidden w-12 h-[1px] bg-chartreuse" />
+              <span className="text-chartreuse font-mono text-sm self-start sm:self-auto">02</span>
             </div>
-          </div>
 
-          {/* 行动按钮 */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button type="button" className="cosmic-button">
-              查看作品集
-            </button>
-            <button type="button" className="px-8 py-3 border border-gray-600 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition-all duration-300">
-              下载简历
-            </button>
-          </div>
-        </div>
-
-        {/* 滚动指示器 */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gradient-to-b from-blue-400 to-transparent rounded-full mt-2 animate-bounce" />
-          </div>
-        </div>
-      </section>
-
-      {/* 关于我 Section */}
-      <section id="about" className="relative z-20 min-h-screen flex items-center justify-center px-6 py-20">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-16 gradient-text">技术专长</h2>
-
-          {/* 简介 */}
-          <div className="glass-card p-8 md:p-12 mb-12">
-            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-              专注于WebGL地图开发与数据可视化的全栈工程师，致力于构建高性能的地理信息系统。
-              从CesiumJS到MapboxGL，从Vue组件库到React生态，探索地图技术的无限可能。
-            </p>
-
-            {/* 核心技能 */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: '🌍', title: 'WebGL地图', desc: '高性能地理可视化' },
-                { icon: '📊', title: '数据可视化', desc: '复杂数据的直观呈现' },
-                { icon: '🧩', title: '组件库开发', desc: '可复用的地图组件' },
-                { icon: '🛰️', title: '遥感数据', desc: '卫星数据解析处理' }
+                { id: 'SYS.01', title: 'WebGL Maps', cnTitle: '高性能地图引擎', desc: 'High-performance geographic rendering engines.', metrics: '99.9%' },
+                { id: 'SYS.02', title: 'Data Vis', cnTitle: '复杂数据可视化', desc: 'Complex spatial data interpretation & visual layout.', metrics: '100%' },
+                { id: 'SYS.03', title: 'UI/UX Comps', cnTitle: '地图组件库', desc: 'Reusable map component libraries (Vue/React).', metrics: 'OPT' },
+                { id: 'SYS.04', title: 'Remote Sensing', cnTitle: '遥感数据解析', desc: 'Satellite data parsing and processing pipelines.', metrics: 'RAW' }
               ].map((item) => (
-                <div key={item.title} className="text-center group">
-                  <div className="text-3xl md:text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {item.icon}
+                <div key={item.id} className="tech-panel p-6 group cursor-default">
+                  <div className="flex justify-between items-center mb-6">
+                    <span className="text-xs text-slate-500 group-hover:text-chartreuse transition-colors">{item.id}</span>
+                    <span className="text-xs font-mono text-cyan-glow bg-cyan-glow/10 px-2 py-1">{item.metrics}</span>
                   </div>
-                  <div className="text-sm md:text-base text-gray-400 font-medium mb-1">{item.title}</div>
-                  <div className="text-xs text-gray-500">{item.desc}</div>
+                  <h3 className="text-xl font-space font-bold text-slate-200 mb-1">{item.title}</h3>
+                  <p className="text-sm font-zh text-slate-400 mb-4 tracking-wider">{item.cnTitle}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-400 transition-colors">
+                    {item.desc}
+                  </p>
+                  <div className="mt-8 h-1 w-full bg-[#1a1a1a] relative overflow-hidden">
+                    <div className="absolute top-0 left-0 h-full bg-chartreuse w-0 group-hover:w-full transition-all duration-1000 ease-out" />
+                  </div>
                 </div>
               ))}
             </div>
+
+            <div className="mt-16 flex flex-wrap gap-3">
+              {['CesiumJS', 'MapboxGL', 'Three.js', 'Vue.js', 'React', 'TypeScript', 'Python', 'Rust', 'Docker', 'Flutter'].map((skill) => (
+                <span key={skill} className="px-3 py-1 text-xs border border-[#1a1a1a] bg-[#0d0d0d] text-slate-400 hover:border-chartreuse hover:text-chartreuse transition-colors cursor-default">
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
+        </section>
 
-          {/* 技能标签 */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {['CesiumJS', 'MapboxGL', 'WebGL', 'Vue.js', 'React', 'TypeScript', 'Python', 'Rust', 'Three.js', 'GIS', 'Docker', 'Flutter'].map((skill) => (
-              <span key={skill} className="px-4 py-2 text-sm bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full text-blue-300 hover:border-blue-400/40 transition-colors duration-300">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* DATA SECTION */}
+        <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-24 relative">
+          <div className="max-w-6xl w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12 sm:mb-16">
+              <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tighter uppercase">
+                Data_Modules
+              </h2>
+              <div className="hidden sm:block flex-1 h-[1px] bg-[#1a1a1a]" />
+              <div className="sm:hidden w-12 h-[1px] bg-chartreuse" />
+              <span className="text-chartreuse font-mono text-sm self-start sm:self-auto">03</span>
+            </div>
 
-      {/* 项目 Section */}
-      <section id="projects" className="relative z-20 min-h-screen flex items-center justify-center px-6 py-20">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-16 gradient-text">精选项目</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'MapVue',
-                desc: '基于Vue3的MapboxGL组件库，提供完整的地图开发解决方案',
-                icon: '🗺️',
-                tags: ['Vue3', 'MapboxGL', 'TypeScript'],
-                link: 'https://github.com/timeroute/mapvue'
-              },
-              {
-                title: 'TimeMap',
-                desc: '基于WebGL的高性能地图引擎，支持大数据量地理可视化',
-                icon: '🌍',
-                tags: ['WebGL', 'TypeScript', 'Canvas'],
-                link: 'https://github.com/timeroute/timemap'
-              },
-              {
-                title: 'Vue-Cesium',
-                desc: 'CesiumJS的Vue3组件封装，用于构建3D地球应用',
-                icon: '🌐',
-                tags: ['CesiumJS', 'Vue3', '3D'],
-                link: 'https://github.com/timeroute/vue-cesium'
-              },
-              {
-                title: 'Cesium-Extends',
-                desc: 'CesiumJS扩展库，提供事件订阅、数据加载、绘图工具等功能',
-                icon: '🛰️',
-                tags: ['CesiumJS', 'JavaScript', 'GIS'],
-                link: 'https://github.com/timeroute/cesium-extends'
-              },
-              {
-                title: 'GaoFen-Parser',
-                desc: '遥感卫星原始数据解析工具，支持多种卫星数据格式',
-                icon: '📡',
-                tags: ['Python', 'Remote Sensing', 'Data'],
-                link: 'https://github.com/timeroute/gaofen-parser'
-              },
-              {
-                title: 'Flutter Map SDK',
-                desc: 'Flutter原生地图SDK集成，支持Android原生地图显示',
-                icon: '📱',
-                tags: ['Flutter', 'Android', 'Java'],
-                link: 'https://github.com/timeroute/flutter_with_map'
-              }
-            ].map((project) => (
-              <a
-                key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card p-6 group cursor-pointer block hover:no-underline"
-              >
-                {/* 项目图标 */}
-                <div className="aspect-square bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mb-4 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-                  <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
-                    {project.icon}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: 'MapVue', desc: 'Vue3 MapboxGL component library.', tags: ['Vue3', 'MapboxGL', 'TS'], link: 'https://github.com/timeroute/mapvue' },
+                { title: 'TimeMap', desc: 'WebGL high-perf map engine for big data.', tags: ['WebGL', 'Canvas', 'TS'], link: 'https://github.com/timeroute/timemap' },
+                { title: 'Vue-Cesium', desc: 'CesiumJS wrapper for Vue3 3D earth apps.', tags: ['CesiumJS', 'Vue3'], link: 'https://github.com/timeroute/vue-cesium' },
+                { title: 'Cesium-Extends', desc: 'Extensions: event sub, data loading, drawing.', tags: ['CesiumJS', 'GIS'], link: 'https://github.com/timeroute/cesium-extends' },
+                { title: 'GaoFen-Parser', desc: 'Remote sensing satellite data parser.', tags: ['Python', 'Data'], link: 'https://github.com/timeroute/gaofen-parser' },
+                { title: 'Flutter Map SDK', desc: 'Native map SDK integration for Flutter.', tags: ['Flutter', 'Android'], link: 'https://github.com/timeroute/flutter_with_map' }
+              ].map((project) => (
+                <a
+                  key={project.title}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tech-panel p-6 block group hover:no-underline"
+                >
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="w-10 h-10 border border-[#1a1a1a] flex items-center justify-center group-hover:border-chartreuse group-hover:text-chartreuse transition-colors">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      </svg>
+                    </div>
+                    <svg className="w-4 h-4 text-slate-600 group-hover:text-chartreuse group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                   </div>
-                </div>
 
-                {/* 项目信息 */}
-                <div className="text-left">
-                  <h3 className="text-lg font-semibold mb-2 gradient-text">{project.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                    {project.desc}
-                  </p>
+                  <h3 className="text-xl font-space font-bold text-slate-200 mb-2 group-hover:text-white">{project.title}</h3>
+                  <p className="text-sm font-zh text-slate-500 mb-6 h-10 group-hover:text-slate-400 transition-colors tracking-wide">{project.desc}</p>
 
-                  {/* 技术标签 */}
-                  <div className="flex flex-wrap gap-2 mb-3">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 text-xs bg-blue-500/20 text-blue-400 rounded border border-blue-500/30">
+                      <span key={tag} className="text-[10px] uppercase tracking-wider text-slate-400 bg-[#1a1a1a] px-2 py-1">
                         {tag}
                       </span>
                     ))}
                   </div>
+                </a>
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center">
+              <button type="button" className="btn-tech">
+                Load All Modules
+              </button>
+            </div>
+          </div>
+        </section>
 
-                  {/* 查看链接 */}
-                  <div className="flex items-center text-blue-400 text-xs font-medium">
-                    <span>查看项目</span>
-                    <svg className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </div>
+        {/* LINK SECTION */}
+        <section id="contact" className="min-h-[70vh] flex items-center justify-center px-6 py-24 relative">
+          <div className="max-w-4xl w-full">
+            <div className="tech-panel p-8 md:p-16 text-center border-t-4 border-t-chartreuse">
+              <div className="w-16 h-16 mx-auto border border-chartreuse flex items-center justify-center mb-8 animate-pulse">
+                <div className="w-8 h-8 bg-chartreuse/20" />
+              </div>
+              
+              <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-6 uppercase tracking-tighter">
+                Establish_Connection
+              </h2>
+              
+              <p className="text-slate-400 max-w-xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
+                Interested in geographic information systems or data visualization?
+                Let's explore the boundaries of spatial tech.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
+                <div className="border border-[#1a1a1a] p-4 hover:border-chartreuse transition-colors">
+                  <div className="text-xs text-slate-600 mb-1">SYS.WEB</div>
+                  <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="text-slate-200 font-space hover:text-chartreuse transition-colors">
+                    zhujia.info
+                  </a>
                 </div>
-              </a>
-            ))}
-          </div>
-
-          {/* 查看更多按钮 */}
-          <div className="mt-12">
-            <button type="button" className="cosmic-button">
-              查看所有项目
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 联系 Section */}
-      <section id="contact" className="relative z-20 min-h-screen flex items-center justify-center px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-16 gradient-text">联系我</h2>
-
-          <div className="glass-card p-8 md:p-12">
-            <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed">
-              对地图开发或数据可视化项目感兴趣？
-              <br className="hidden md:block" />
-              让我们一起探索地理信息技术的无限可能！
-            </p>
-
-            {/* 联系方式 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center group">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🌐</div>
-                <h3 className="text-lg font-semibold mb-2 gradient-text-blue">个人网站</h3>
-                <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
-                  zhujia.info
-                </a>
-                <p className="text-gray-500 text-sm mt-1">技术博客与项目展示</p>
+                <div className="border border-[#1a1a1a] p-4 hover:border-chartreuse transition-colors">
+                  <div className="text-xs text-slate-600 mb-1">SYS.GIT</div>
+                  <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="text-slate-200 font-space hover:text-chartreuse transition-colors">
+                    @timeroute
+                  </a>
+                </div>
+                <div className="border border-[#1a1a1a] p-4 hover:border-chartreuse transition-colors">
+                  <div className="text-xs text-slate-600 mb-1">SYS.LOC</div>
+                  <span className="text-slate-200 font-space">
+                    Beijing, CN
+                  </span>
+                </div>
               </div>
 
-              <div className="text-center group">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🐙</div>
-                <h3 className="text-lg font-semibold mb-2 gradient-text-blue">GitHub</h3>
-                <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
-                  @timeroute
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="btn-tech">
+                  Access Git Node
                 </a>
-                <p className="text-gray-500 text-sm mt-1">开源项目与代码分享</p>
-              </div>
-
-              <div className="text-center group">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📍</div>
-                <h3 className="text-lg font-semibold mb-2 gradient-text-blue">位置</h3>
-                <p className="text-gray-400">北京，中国</p>
-                <p className="text-gray-500 text-sm mt-1">欢迎技术交流与合作</p>
+                <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="btn-tech btn-tech-alt">
+                  Ping Server
+                </a>
               </div>
             </div>
-
-            {/* 行动按钮 */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://github.com/timeroute" target="_blank" rel="noopener noreferrer" className="cosmic-button no-underline">
-                查看GitHub
-              </a>
-              <a href="https://zhujia.info" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-gray-600 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 no-underline">
-                访问博客
-              </a>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 背景装饰元素 */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-gray-700 rounded-full opacity-30" />
-      <div className="absolute bottom-20 right-10 w-24 h-24 border border-gray-700 rounded-full opacity-20" />
-      <div className="absolute top-1/2 left-5 w-2 h-20 bg-gradient-to-b from-blue-500 to-transparent opacity-40" />
-      <div className="absolute top-1/3 right-5 w-2 h-16 bg-gradient-to-b from-purple-500 to-transparent opacity-40" />
+      </main>
     </div>
   );
 }

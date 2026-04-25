@@ -2,18 +2,19 @@
 
 import { useEffect, useRef } from 'react';
 
-interface Star {
+interface Point {
   x: number;
   y: number;
   z: number;
-  prevX: number;
-  prevY: number;
+  baseY: number;
+  angle: number;
 }
 
 export default function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const starsRef = useRef<Star[]>([]);
+  const pointsRef = useRef<Point[]>([]);
   const animationRef = useRef<number>(0);
+  const timeRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -22,63 +23,76 @@ export default function StarField() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // 设置画布大小
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      initMesh();
+    };
+
+    // Initialize 3D wave mesh
+    const initMesh = () => {
+      pointsRef.current = [];
+      // 移动端降低密度以提高性能
+      const isMobile = window.innerWidth < 768;
+      const cols = isMobile ? 20 : 40;
+      const rows = isMobile ? 20 : 40;
+      const spacing = isMobile ? 60 : 40;
+      
+      const startX = -((cols - 1) * spacing) / 2;
+      const startZ = 100;
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const x = startX + i * spacing;
+          const z = startZ + j * spacing;
+          const angle = Math.sqrt(x * x + z * z) * 0.05;
+          pointsRef.current.push({
+            x,
+            baseY: 100, // offset below center
+            y: 100,
+            z,
+            angle
+          });
+        }
+      }
     };
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // 初始化星星
-    const initStars = () => {
-      starsRef.current = [];
-      for (let i = 0; i < 800; i++) {
-        starsRef.current.push({
-          x: Math.random() * canvas.width - canvas.width / 2,
-          y: Math.random() * canvas.height - canvas.height / 2,
-          z: Math.random() * 1000,
-          prevX: 0,
-          prevY: 0,
-        });
-      }
-    };
-
-    initStars();
-
-    // 动画循环
     const animate = () => {
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
+      const fov = 350;
 
-      starsRef.current.forEach((star) => {
-        star.prevX = star.x / star.z * 100 + centerX;
-        star.prevY = star.y / star.z * 100 + centerY;
+      timeRef.current += 0.02;
 
-        star.z -= 2;
+      ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
 
-        if (star.z <= 0) {
-          star.x = Math.random() * canvas.width - canvas.width / 2;
-          star.y = Math.random() * canvas.height - canvas.height / 2;
-          star.z = 1000;
+      pointsRef.current.forEach((point) => {
+        // Calculate wave motion
+        point.y = point.baseY + Math.sin(point.angle + timeRef.current) * 40;
+
+        // Project 3D to 2D
+        const scale = fov / (fov + point.z);
+        const x2d = point.x * scale + centerX;
+        const y2d = point.y * scale + centerY + 100; // shift down slightly
+
+        // Only draw if within bounds and in front of camera
+        if (point.z > 0 && x2d > 0 && x2d < canvas.width && y2d > 0 && y2d < canvas.height) {
+          ctx.beginPath();
+          // Scale size based on depth
+          ctx.arc(x2d, y2d, scale * 1.5, 0, Math.PI * 2);
+          ctx.fill();
         }
-
-        const x = star.x / star.z * 100 + centerX;
-        const y = star.y / star.z * 100 + centerY;
-
-        const opacity = 1 - star.z / 1000;
-        const size = (1 - star.z / 1000) * 2;
-
-        ctx.strokeStyle = `rgba(79, 172, 254, ${opacity})`;
-        ctx.lineWidth = size;
-        ctx.beginPath();
-        ctx.moveTo(star.prevX, star.prevY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
+        
+        // Slowly move points towards camera to create infinite forward motion
+        point.z -= 1;
+        if (point.z < 10) {
+          point.z = 100 + 40 * 40; // recycle to back
+        }
       });
 
       animationRef.current = requestAnimationFrame(animate);
@@ -97,7 +111,7 @@ export default function StarField() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40 mix-blend-screen"
       style={{ background: 'transparent' }}
     />
   );
