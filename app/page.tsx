@@ -72,7 +72,7 @@ export default function Home() {
               </div>
               
               <p className="text-slate-400 max-w-2xl mb-12 leading-relaxed text-sm md:text-base border-l border-slate-800 pl-4 font-zh tracking-wide">
-                "敦兮其若朴，旷兮其若谷" <br/>
+                &quot;敦兮其若朴，旷兮其若谷&quot; <br/>
                 <span className="text-slate-500 mt-2 block">Focusing on high-performance geographic information systems, from CesiumJS to MapboxGL, exploring the infinite possibilities of spatial data.</span>
               </p>
 
@@ -233,7 +233,7 @@ export default function Home() {
               
               <p className="text-slate-400 max-w-xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
                 Interested in geographic information systems or data visualization?
-                Let's explore the boundaries of spatial tech.
+                Let&apos;s explore the boundaries of spatial tech.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
