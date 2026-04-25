@@ -32,9 +32,11 @@ export default function StarField() {
     // Initialize 3D wave mesh
     const initMesh = () => {
       pointsRef.current = [];
-      const cols = 40;
-      const rows = 40;
-      const spacing = 40;
+      // 移动端降低密度以提高性能
+      const isMobile = window.innerWidth < 768;
+      const cols = isMobile ? 20 : 40;
+      const rows = isMobile ? 20 : 40;
+      const spacing = isMobile ? 60 : 40;
       
       const startX = -((cols - 1) * spacing) / 2;
       const startZ = 100;

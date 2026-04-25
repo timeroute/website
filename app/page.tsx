@@ -58,13 +58,15 @@ export default function Home() {
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white">
-                Zhu Jia <span className="text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle ml-2">朱嘉</span>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span>Zhu Jia</span>
+                <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle">朱嘉</span>
               </h1>
               
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-[1px] w-12 bg-chartreuse" />
-                <p className="text-lg md:text-xl text-cyan-glow font-mono tracking-widest uppercase">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                <div className="hidden sm:block h-[1px] w-12 bg-chartreuse" />
+                <div className="sm:hidden w-8 h-[2px] bg-chartreuse" />
+                <p className="text-base sm:text-lg md:text-xl text-cyan-glow font-mono tracking-widest uppercase">
                   WebGL Map & Data Vis Engineer
                 </p>
               </div>
@@ -74,11 +76,11 @@ export default function Home() {
                 <span className="text-slate-500 mt-2 block">Focusing on high-performance geographic information systems, from CesiumJS to MapboxGL, exploring the infinite possibilities of spatial data.</span>
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                <button type="button" className="btn-tech font-space tracking-wider">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button type="button" className="btn-tech font-space tracking-wider w-full sm:w-auto">
                   建立连接 [INIT_LINK]
                 </button>
-                <button type="button" className="btn-tech btn-tech-alt font-space tracking-wider">
+                <button type="button" className="btn-tech btn-tech-alt font-space tracking-wider w-full sm:w-auto">
                   下载简历 [DL_SPECS]
                 </button>
               </div>
@@ -113,12 +115,13 @@ export default function Home() {
         {/* SPECS SECTION */}
         <section id="about" className="min-h-screen flex items-center justify-center px-6 py-24 relative">
           <div className="max-w-6xl w-full">
-            <div className="flex items-center gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12 sm:mb-16">
               <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tighter uppercase">
                 Technical_Specs
               </h2>
-              <div className="flex-1 h-[1px] bg-[#1a1a1a]" />
-              <span className="text-chartreuse font-mono text-sm">02</span>
+              <div className="hidden sm:block flex-1 h-[1px] bg-[#1a1a1a]" />
+              <div className="sm:hidden w-12 h-[1px] bg-chartreuse" />
+              <span className="text-chartreuse font-mono text-sm self-start sm:self-auto">02</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -158,12 +161,13 @@ export default function Home() {
         {/* DATA SECTION */}
         <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-24 relative">
           <div className="max-w-6xl w-full">
-            <div className="flex items-center gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12 sm:mb-16">
               <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tighter uppercase">
                 Data_Modules
               </h2>
-              <div className="flex-1 h-[1px] bg-[#1a1a1a]" />
-              <span className="text-chartreuse font-mono text-sm">03</span>
+              <div className="hidden sm:block flex-1 h-[1px] bg-[#1a1a1a]" />
+              <div className="sm:hidden w-12 h-[1px] bg-chartreuse" />
+              <span className="text-chartreuse font-mono text-sm self-start sm:self-auto">03</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

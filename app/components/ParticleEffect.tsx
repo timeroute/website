@@ -8,6 +8,11 @@ export default function ParticleEffect() {
   const animationRef = useRef<number>(0);
 
   useEffect(() => {
+    // 简单的设备检测：如果是触摸设备，则不渲染雷达十字，以防触摸冲突
+    if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
