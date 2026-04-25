@@ -47,7 +47,7 @@ export default function Home() {
       <main className="relative z-20">
         
         {/* HERO SECTION */}
-        <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+        <section id="home" className="min-h-[100dvh] flex items-center justify-center px-6 pt-24 md:pt-32 pb-16">
           <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8">
@@ -58,9 +58,9 @@ export default function Home() {
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                <span>Zhu Jia</span>
-                <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle">朱嘉</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 leading-none">
+                <span className="leading-none">Zhu Jia</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal leading-none">朱嘉</span>
               </h1>
               
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
@@ -113,7 +113,7 @@ export default function Home() {
         </section>
 
         {/* SPECS SECTION */}
-        <section id="about" className="min-h-screen flex items-center justify-center px-6 py-24 relative">
+        <section id="about" className="min-h-[100dvh] flex items-center justify-center px-6 py-16 md:py-24 relative">
           <div className="max-w-6xl w-full">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12 sm:mb-16">
               <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tighter uppercase">
@@ -159,7 +159,7 @@ export default function Home() {
         </section>
 
         {/* DATA SECTION */}
-        <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-24 relative">
+        <section id="projects" className="min-h-[100dvh] flex items-center justify-center px-6 py-16 md:py-24 relative">
           <div className="max-w-6xl w-full">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12 sm:mb-16">
               <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tighter uppercase">
@@ -220,7 +220,7 @@ export default function Home() {
         </section>
 
         {/* LINK SECTION */}
-        <section id="contact" className="min-h-[70vh] flex items-center justify-center px-6 py-24 relative">
+        <section id="contact" className="min-h-[70dvh] flex items-center justify-center px-6 py-16 md:py-24 relative">
           <div className="max-w-4xl w-full">
             <div className="tech-panel p-8 md:p-16 text-center border-t-4 border-t-chartreuse">
               <div className="w-16 h-16 mx-auto border border-chartreuse flex items-center justify-center mb-8 animate-pulse">

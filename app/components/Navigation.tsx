@@ -47,9 +47,17 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 border-b ${isScrolled
+      <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 border-b ${isScrolled || isMobileMenuOpen
           ? 'bg-obsidian/90 backdrop-blur-md border-[#1a1a1a]'
           : 'bg-transparent border-transparent'
         }`}>
@@ -91,14 +99,14 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               type="button"
-              className="md:hidden relative p-2 text-slate-300 hover:text-chartreuse transition-colors duration-300"
+              className={`md:hidden relative p-2 transition-colors duration-300 z-50 ${isMobileMenuOpen ? 'text-chartreuse' : 'text-slate-300 hover:text-chartreuse'}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              <div className="w-6 h-4 relative flex flex-col justify-between">
-                <span className={`block h-[1px] bg-current transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-                <span className={`block h-[1px] bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-                <span className={`block h-[1px] bg-current transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+              <div className="w-6 h-5 relative flex flex-col justify-between">
+                <span className={`block h-[1px] bg-current transform transition-all duration-300 origin-left ${isMobileMenuOpen ? 'rotate-45 translate-x-[2px] translate-y-[-1px] w-[26px]' : 'w-full'}`} />
+                <span className={`block h-[1px] bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0 translate-x-2' : 'w-full'}`} />
+                <span className={`block h-[1px] bg-current transform transition-all duration-300 origin-left ${isMobileMenuOpen ? '-rotate-45 translate-x-[2px] translate-y-[1px] w-[26px]' : 'w-full'}`} />
               </div>
             </button>
           </div>
@@ -106,40 +114,46 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'visible' : 'invisible'}`}>
-        <button
-          type="button"
-          className={`absolute inset-0 bg-obsidian/80 backdrop-blur-sm transition-opacity duration-300 border-none ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <div
+          className={`absolute inset-0 bg-obsidian/95 backdrop-blur-xl transition-opacity duration-300`}
           onClick={() => setIsMobileMenuOpen(false)}
           aria-label="Close menu"
         />
 
-        <div className={`absolute top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-[#1a1a1a] transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="p-6 pt-24">
-            <div className="space-y-6">
-              {navItems.map((item, index) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`w-full text-left p-4 border transition-all duration-300 ${activeSection === item.id
-                      ? 'border-chartreuse text-chartreuse bg-chartreuse/5'
-                      : 'border-[#1a1a1a] text-slate-400 hover:border-slate-700 hover:text-slate-200'
-                    }`}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  <div className="flex items-center gap-4 font-mono">
-                    <span className="text-xs opacity-50">{item.num}</span>
-                    <div className="font-medium tracking-widest">{item.label}</div>
-                  </div>
-                </button>
-              ))}
-            </div>
+        <div className={`absolute inset-0 flex flex-col justify-center px-8 transition-transform duration-500 ease-out ${isMobileMenuOpen ? 'translate-y-0' : 'translate-y-12'}`}>
+          <div className="space-y-6">
+            {navItems.map((item, index) => (
+              <button
+                type="button"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left group transition-all duration-300`}
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
+                <div className="flex items-end gap-4 font-space text-4xl sm:text-5xl uppercase tracking-tighter">
+                  <span className={`text-sm font-mono transition-colors ${activeSection === item.id ? 'text-chartreuse' : 'text-slate-600 group-hover:text-chartreuse'}`}>
+                    {item.num}
+                  </span>
+                  <span className={`transition-colors ${activeSection === item.id ? 'text-chartreuse' : 'text-slate-300 group-hover:text-white'}`}>
+                    {item.label}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
 
-            <div className="mt-12 pt-8 border-t border-[#1a1a1a] font-mono text-xs text-slate-500">
-              <div className="text-chartreuse mb-2">STATUS: ONLINE</div>
+          <div className="mt-16 pt-8 border-t border-[#1a1a1a] font-mono text-xs text-slate-500 flex justify-between items-end">
+            <div>
+              <div className="text-chartreuse mb-2 flex items-center gap-2">
+                <span className="w-2 h-2 bg-chartreuse animate-pulse" />
+                STATUS: ONLINE
+              </div>
               <div>LOC: BEIJING, CN</div>
-              <div className="mt-4">V_2.0.4</div>
+            </div>
+            <div className="text-right">
+              <div className="mb-2 text-slate-400">V_2.0.4</div>
+              <div>SYS.OK</div>
             </div>
           </div>
         </div>
