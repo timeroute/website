@@ -47,7 +47,7 @@ export default function Home() {
       <main className="relative z-20">
         
         {/* HERO SECTION */}
-        <section id="home" className="min-h-[90dvh] flex items-center justify-center px-6 sm:px-12 pt-28 md:pt-36 pb-12 sm:pb-20">
+        <section id="home" className="min-h-[90dvh] flex items-center justify-center px-6 sm:px-12 lg:px-20 pt-28 md:pt-36 pb-12 sm:pb-20">
           <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             <div className="lg:col-span-7 flex flex-col justify-center">
@@ -113,7 +113,7 @@ export default function Home() {
         </section>
 
         {/* SPECS SECTION */}
-        <section id="about" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 md:py-28 relative">
+        <section id="about" className="min-h-screen flex items-center justify-center px-6 sm:px-12 lg:px-20 py-24 md:py-32 relative">
           <div className="max-w-7xl w-full">
             <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-16 sm:mb-20">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white tracking-tighter uppercase">
@@ -124,7 +124,7 @@ export default function Home() {
               <span className="text-chartreuse font-mono text-base self-start sm:self-auto hidden sm:block">02</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
               {[
                 { id: 'SYS.01', title: 'WebGL Maps', cnTitle: '高性能地图引擎', desc: 'High-performance geographic rendering engines.', metrics: '99.9%' },
                 { id: 'SYS.02', title: 'Data Vis', cnTitle: '复杂数据可视化', desc: 'Complex spatial data interpretation & visual layout.', metrics: '100%' },
@@ -159,7 +159,7 @@ export default function Home() {
         </section>
 
         {/* DATA SECTION */}
-        <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 md:py-28 relative">
+        <section id="projects" className="min-h-screen flex items-center justify-center px-6 sm:px-12 lg:px-20 py-24 md:py-32 relative">
           <div className="max-w-7xl w-full">
             <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-16 sm:mb-20">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white tracking-tighter uppercase">
@@ -170,7 +170,7 @@ export default function Home() {
               <span className="text-chartreuse font-mono text-base self-start sm:self-auto hidden sm:block">03</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
               {[
                 { title: 'MapVue', desc: 'Vue3 MapboxGL component library.', tags: ['Vue3', 'MapboxGL', 'TS'], link: 'https://github.com/timeroute/mapvue' },
                 { title: 'TimeMap', desc: 'WebGL high-perf map engine for big data.', tags: ['WebGL', 'Canvas', 'TS'], link: 'https://github.com/timeroute/timemap' },
@@ -220,7 +220,7 @@ export default function Home() {
         </section>
 
         {/* LINK SECTION */}
-        <section id="contact" className="min-h-[70dvh] flex items-center justify-center px-4 sm:px-6 py-20 md:py-28 relative">
+        <section id="contact" className="min-h-[70dvh] flex items-center justify-center px-6 sm:px-12 lg:px-20 py-24 md:py-32 relative">
           <div className="max-w-4xl w-full">
             <div className="tech-panel p-10 md:p-20 text-center border-t-4 border-t-chartreuse shadow-2xl">
               <div className="w-20 h-20 mx-auto border border-chartreuse flex items-center justify-center mb-10 animate-pulse">
