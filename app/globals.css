@@ -7,8 +7,9 @@
   --color-panel: #0d0d0d;
   --color-panel-border: #1a1a1a;
   
-  --font-space: var(--font-space), sans-serif;
-  --font-mono: var(--font-mono), monospace;
+  --font-space: var(--font-space), var(--font-zh), sans-serif;
+  --font-mono: var(--font-mono), var(--font-zh), monospace;
+  --font-zh: var(--font-zh), sans-serif;
 }
 
 :root {

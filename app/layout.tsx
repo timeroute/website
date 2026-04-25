@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -12,6 +12,12 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+});
+
+const notoSansSC = Noto_Sans_SC({
+  variable: "--font-zh",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body
-        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-mono bg-obsidian text-slate-300`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${notoSansSC.variable} antialiased font-zh bg-obsidian text-slate-300`}
       >
         {children}
       </body>

@@ -59,7 +59,7 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-space font-bold uppercase tracking-tighter mb-4 text-white">
-                Zhu Jia
+                Zhu Jia <span className="text-3xl md:text-5xl lg:text-6xl text-slate-500 font-zh tracking-normal align-middle ml-2">朱佳</span>
               </h1>
               
               <div className="flex items-center gap-4 mb-8">
@@ -69,17 +69,17 @@ export default function Home() {
                 </p>
               </div>
               
-              <p className="text-slate-400 max-w-2xl mb-12 leading-relaxed text-sm md:text-base border-l border-slate-800 pl-4">
-                "敦兮其若朴，旷兮其若谷" — Focusing on high-performance geographic information systems, 
-                from CesiumJS to MapboxGL, exploring the infinite possibilities of spatial data.
+              <p className="text-slate-400 max-w-2xl mb-12 leading-relaxed text-sm md:text-base border-l border-slate-800 pl-4 font-zh tracking-wide">
+                "敦兮其若朴，旷兮其若谷" <br/>
+                <span className="text-slate-500 mt-2 block">Focusing on high-performance geographic information systems, from CesiumJS to MapboxGL, exploring the infinite possibilities of spatial data.</span>
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button type="button" className="btn-tech">
-                  Initialize Link
+                <button type="button" className="btn-tech font-space tracking-wider">
+                  建立连接 [INIT_LINK]
                 </button>
-                <button type="button" className="btn-tech btn-tech-alt">
-                  Download Specs
+                <button type="button" className="btn-tech btn-tech-alt font-space tracking-wider">
+                  下载简历 [DL_SPECS]
                 </button>
               </div>
             </div>
@@ -123,18 +123,19 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { id: 'SYS.01', title: 'WebGL Maps', desc: 'High-performance geographic rendering engines.', metrics: '99.9%' },
-                { id: 'SYS.02', title: 'Data Vis', desc: 'Complex spatial data interpretation & visual layout.', metrics: '100%' },
-                { id: 'SYS.03', title: 'UI/UX Comps', desc: 'Reusable map component libraries (Vue/React).', metrics: 'OPT' },
-                { id: 'SYS.04', title: 'Remote Sensing', desc: 'Satellite data parsing and processing pipelines.', metrics: 'RAW' }
+                { id: 'SYS.01', title: 'WebGL Maps', cnTitle: '高性能地图引擎', desc: 'High-performance geographic rendering engines.', metrics: '99.9%' },
+                { id: 'SYS.02', title: 'Data Vis', cnTitle: '复杂数据可视化', desc: 'Complex spatial data interpretation & visual layout.', metrics: '100%' },
+                { id: 'SYS.03', title: 'UI/UX Comps', cnTitle: '地图组件库', desc: 'Reusable map component libraries (Vue/React).', metrics: 'OPT' },
+                { id: 'SYS.04', title: 'Remote Sensing', cnTitle: '遥感数据解析', desc: 'Satellite data parsing and processing pipelines.', metrics: 'RAW' }
               ].map((item) => (
                 <div key={item.id} className="tech-panel p-6 group cursor-default">
-                  <div className="flex justify-between items-center mb-8">
+                  <div className="flex justify-between items-center mb-6">
                     <span className="text-xs text-slate-500 group-hover:text-chartreuse transition-colors">{item.id}</span>
                     <span className="text-xs font-mono text-cyan-glow bg-cyan-glow/10 px-2 py-1">{item.metrics}</span>
                   </div>
-                  <h3 className="text-xl font-space font-bold text-slate-200 mb-3">{item.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed group-hover:text-slate-400 transition-colors">
+                  <h3 className="text-xl font-space font-bold text-slate-200 mb-1">{item.title}</h3>
+                  <p className="text-sm font-zh text-slate-400 mb-4 tracking-wider">{item.cnTitle}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed group-hover:text-slate-400 transition-colors">
                     {item.desc}
                   </p>
                   <div className="mt-8 h-1 w-full bg-[#1a1a1a] relative overflow-hidden">
@@ -193,7 +194,7 @@ export default function Home() {
                   </div>
 
                   <h3 className="text-xl font-space font-bold text-slate-200 mb-2 group-hover:text-white">{project.title}</h3>
-                  <p className="text-sm text-slate-500 mb-6 h-10">{project.desc}</p>
+                  <p className="text-sm font-zh text-slate-500 mb-6 h-10 group-hover:text-slate-400 transition-colors tracking-wide">{project.desc}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
