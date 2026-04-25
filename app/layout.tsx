@@ -21,15 +21,15 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "TimeRoute | WebGL & Data Visualization",
+  title: "Zhu Jia | WebGL & Data Visualization",
   description: "专注于WebGL地图开发、数据可视化、Vue/React组件库开发的全栈工程师。敦兮其若朴，旷兮其若谷。",
   keywords: "WebGL, 地图开发, 数据可视化, Vue, React, CesiumJS, MapboxGL, 前端开发",
-  authors: [{ name: "时空路由器", url: "https://zhujia.info" }],
+  authors: [{ name: "Zhu Jia", url: "https://zhujia.me" }],
   openGraph: {
-    title: "时空路由器 - TimeRoute",
+    title: "Zhu Jia Portfolio",
     description: "专注于WebGL地图开发、数据可视化的全栈工程师",
-    url: "https://zhujia.info",
-    siteName: "TimeRoute Portfolio",
+    url: "https://zhujia.me",
+    siteName: "Zhu Jia Portfolio",
     type: "website",
   },
 };
