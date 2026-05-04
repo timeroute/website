@@ -58,7 +58,7 @@ export default function Navigation() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 border-b ${isScrolled || isMobileMenuOpen
-          ? 'bg-obsidian/90 backdrop-blur-md border-[#222]'
+          ? 'bg-obsidian/80 backdrop-blur-xl border-cyan-glow/30 shadow-[0_0_20px_rgba(0,229,255,0.12)]'
           : 'bg-transparent border-transparent'
         }`}>
         <div className="w-full px-6 lg:px-12 py-4 h-full flex">
@@ -69,7 +69,7 @@ export default function Navigation() {
               className="text-xl font-space font-bold tracking-widest cursor-pointer hover:text-chartreuse transition-colors duration-300 bg-transparent border-none flex items-center gap-2"
               onClick={() => scrollToSection('home')}
             >
-              <div className="w-3 h-3 bg-chartreuse animate-pulse" />
+              <div className="w-3 h-3 bg-chartreuse animate-pulse shadow-[0_0_12px_rgba(204,255,0,0.8)]" />
               ZHU JIA
             </button>
 
@@ -82,7 +82,7 @@ export default function Navigation() {
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-2 py-1 text-sm font-mono tracking-wider transition-all duration-300 group flex items-center gap-2 ${activeSection === item.id
                       ? 'text-chartreuse'
-                      : 'text-slate-400 hover:text-slate-200'
+                      : 'text-slate-400 hover:text-cyan-glow'
                     }`}
                 >
                   <span className="text-[10px] opacity-50 group-hover:opacity-100">{item.num}</span>
