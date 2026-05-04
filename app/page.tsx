@@ -18,17 +18,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-obsidian text-slate-300 font-mono relative selection:bg-chartreuse selection:text-black">
+    <div className="min-h-screen bg-obsidian text-slate-300 font-mono relative selection:bg-chartreuse selection:text-black neon-frame">
       <div className="scanline" />
       <Navigation />
       <StarField />
       <ParticleEffect />
-      <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-30" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-40" />
       
       <div
         className="fixed pointer-events-none z-10 w-[600px] h-[600px] rounded-full opacity-20 mix-blend-screen"
         style={{
-          background: 'radial-gradient(circle, var(--color-cyan-glow) 0%, transparent 50%)',
+          background: 'radial-gradient(circle, rgba(0,229,255,0.45) 0%, rgba(255,43,214,0.22) 35%, transparent 65%)',
           left: mousePosition.x - 300,
           top: mousePosition.y - 300,
           transition: 'transform 0.1s ease-out',
@@ -59,9 +59,9 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-chartreuse/50 m-4 hidden lg:block" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-chartreuse/50 m-4 hidden lg:block" />
               
-              <h1 className="font-space font-bold uppercase tracking-tighter mb-8 text-white flex flex-col leading-[0.85]">
+              <h1 className="font-space font-bold uppercase tracking-tighter mb-8 text-white flex flex-col leading-[0.85] neon-title">
                 <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] lg:text-[10rem]">Zhu Jia</span>
-                <span className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-slate-600 font-zh tracking-widest mt-2">朱嘉</span>
+                <span className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-fuchsia-400/70 font-zh tracking-widest mt-2 neon-subtitle">朱嘉</span>
               </h1>
               
               <div className="flex items-center gap-6 mb-12">
