@@ -18,17 +18,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-obsidian text-slate-300 font-mono relative selection:bg-chartreuse selection:text-black">
+    <div className="min-h-screen bg-obsidian text-slate-300 font-mono relative selection:bg-chartreuse selection:text-black neon-frame">
       <div className="scanline" />
       <Navigation />
       <StarField />
       <ParticleEffect />
-      <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-30" />
+      <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-40" />
       
       <div
         className="fixed pointer-events-none z-10 w-[600px] h-[600px] rounded-full opacity-20 mix-blend-screen"
         style={{
-          background: 'radial-gradient(circle, var(--color-cyan-glow) 0%, transparent 50%)',
+          background: 'radial-gradient(circle, rgba(0,229,255,0.45) 0%, rgba(255,43,214,0.22) 35%, transparent 65%)',
           left: mousePosition.x - 300,
           top: mousePosition.y - 300,
           transition: 'transform 0.1s ease-out',
@@ -41,7 +41,7 @@ export default function Home() {
         {/* === HERO SECTION === */}
         <section id="home" className="min-h-[100dvh] pt-24 pb-12 flex flex-col border-b border-[#222]">
           {/* Top Info Bar */}
-          <div className="w-full px-6 lg:px-12 py-4 flex justify-between items-center border-b border-[#222]">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-4 flex justify-between items-center border-b border-[#222]">
             <div className="flex items-center gap-4">
               <span className="w-3 h-3 bg-chartreuse animate-blink shadow-[0_0_10px_rgba(204,255,0,0.8)]" />
               <span className="text-xs font-mono text-chartreuse tracking-[0.3em] uppercase">System.Init_OK</span>
@@ -52,16 +52,16 @@ export default function Home() {
           </div>
 
           {/* Hero Core */}
-          <div className="flex-1 w-full grid grid-cols-1 lg:grid-cols-12">
+          <div className="flex-1 w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12">
             
             {/* Left/Main Content */}
-            <div className="lg:col-span-8 p-6 lg:p-12 xl:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-[#222] relative">
+            <div className="lg:col-span-7 p-6 lg:p-12 xl:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-[#222] relative">
               <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-chartreuse/50 m-4 hidden lg:block" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-chartreuse/50 m-4 hidden lg:block" />
               
-              <h1 className="font-space font-bold uppercase tracking-tighter mb-8 text-white flex flex-col leading-[0.85]">
+              <h1 className="font-space font-bold uppercase tracking-tighter mb-8 text-white flex flex-col leading-[0.85] neon-title">
                 <span className="text-[5rem] sm:text-[7rem] md:text-[9rem] lg:text-[10rem]">Zhu Jia</span>
-                <span className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-slate-600 font-zh tracking-widest mt-2">朱嘉</span>
+                <span className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-fuchsia-400/70 font-zh tracking-widest mt-2 neon-subtitle">朱嘉</span>
               </h1>
               
               <div className="flex items-center gap-6 mb-12">
@@ -71,7 +71,7 @@ export default function Home() {
                 </h2>
               </div>
               
-              <div className="max-w-2xl border-l-2 border-chartreuse pl-6 md:pl-8 mb-16">
+              <div className="max-w-2xl border-l-2 border-chartreuse pl-6 md:pl-8 mb-12 md:mb-14">
                 <p className="text-slate-400 text-lg md:text-xl font-zh tracking-widest mb-6">
                   &quot;敦兮其若朴，旷兮其若谷&quot;
                 </p>
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             {/* Right/Stats Content */}
-            <div className="lg:col-span-4 p-6 lg:p-12 flex flex-col justify-between bg-[#050505]">
+            <div className="lg:col-span-5 p-6 lg:p-12 xl:p-16 flex flex-col justify-between bg-[#050505]">
               <div className="mb-12">
                 <div className="text-xs text-slate-500 font-mono mb-4">{`/// TECH_STACK`}</div>
                 <ul className="space-y-6">
@@ -121,7 +121,7 @@ export default function Home() {
 
         {/* === SPECS SECTION === */}
         <section id="about" className="min-h-[100dvh] flex flex-col border-b border-[#222]">
-          <div className="w-full px-6 lg:px-12 py-8 lg:py-12 border-b border-[#222] bg-[#050505] flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-8 lg:py-12 border-b border-[#222] bg-[#050505] flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <div className="text-chartreuse font-mono text-sm mb-2">02 // SECTION</div>
               <h2 className="text-5xl md:text-7xl font-space font-bold text-white tracking-tighter uppercase leading-none">
@@ -133,7 +133,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full">
+          <div className="flex-1 max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full">
             {[
               { id: 'SYS.01', title: 'WebGL Maps', cnTitle: '高性能地图引擎', desc: 'High-performance geographic rendering engines.', metrics: '99.9%' },
               { id: 'SYS.02', title: 'Data Vis', cnTitle: '复杂数据可视化', desc: 'Complex spatial data interpretation & visual layout.', metrics: '100%' },
@@ -157,7 +157,7 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="w-full px-6 lg:px-12 py-8 bg-[#0a0a0a] border-t border-[#222]">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-8 bg-[#0a0a0a] border-t border-[#222]">
             <div className="flex flex-wrap gap-4 items-center">
               <span className="text-xs text-slate-500 font-mono mr-4">{`/// SKILLS`}</span>
               {['CesiumJS', 'MapboxGL', 'Three.js', 'Vue.js', 'React', 'TypeScript', 'Python', 'Rust', 'Docker', 'Flutter'].map((skill) => (
@@ -171,7 +171,7 @@ export default function Home() {
 
         {/* === DATA SECTION === */}
         <section id="projects" className="min-h-[100dvh] flex flex-col border-b border-[#222]">
-          <div className="w-full px-6 lg:px-12 py-8 lg:py-12 border-b border-[#222] bg-[#050505] flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-8 lg:py-12 border-b border-[#222] bg-[#050505] flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <div className="text-chartreuse font-mono text-sm mb-2">03 // SECTION</div>
               <h2 className="text-5xl md:text-7xl font-space font-bold text-white tracking-tighter uppercase leading-none">
@@ -180,7 +180,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+          <div className="flex-1 max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
             {[
               { title: 'MapVue', desc: 'Vue3 MapboxGL component library.', tags: ['Vue3', 'MapboxGL', 'TS'], link: 'https://github.com/zhujia/mapvue' },
               { title: 'TimeMap', desc: 'WebGL high-perf map engine for big data.', tags: ['WebGL', 'Canvas', 'TS'], link: 'https://github.com/zhujia/timemap' },
@@ -194,7 +194,7 @@ export default function Home() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`tech-panel p-8 lg:p-12 block group hover:no-underline border-r-0 border-b-0 
+                className={`tech-panel p-8 lg:p-12 block group hover:no-underline border-r-0 border-b-0 min-h-[340px] 
                   ${idx % 2 === 0 ? 'md:border-r' : ''} 
                   ${idx % 3 !== 2 ? 'lg:border-r' : 'lg:border-r-0'} 
                   ${idx < 3 ? 'border-b' : ''} 
