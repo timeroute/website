@@ -15,6 +15,8 @@
 :root {
   --background: #000000;
   --foreground: #e5e5e5;
+  --neon-magenta: #ff2bd6;
+  --neon-violet: #8b5cf6;
 }
 
 * {
@@ -30,6 +32,10 @@ html {
 
 body {
   background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(255, 43, 214, 0.1), transparent 45%),
+    linear-gradient(180deg, #02030a 0%, #000000 60%, #03010a 100%);
   color: var(--foreground);
   overflow-x: hidden;
   min-height: 100vh;
@@ -64,6 +70,19 @@ body {
   opacity: 0.5;
 }
 
+.neon-frame {
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 43, 214, 0.15), 0 0 28px rgba(0, 229, 255, 0.12);
+}
+
+.neon-title {
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.2), 0 0 26px rgba(255, 43, 214, 0.15);
+}
+
+.neon-subtitle {
+  text-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
+}
+
 /* Base Panel Style */
 .tech-panel {
   background: var(--color-panel);
@@ -74,7 +93,8 @@ body {
 
 .tech-panel:hover {
   border-color: rgba(204, 255, 0, 0.4);
-  background: #0d0d0d;
+  background: linear-gradient(135deg, rgba(8, 8, 14, 0.95), rgba(7, 12, 16, 0.95));
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.08);
 }
 
 /* Decorative Corners for Tech Panel */
@@ -114,7 +134,7 @@ body {
   justify-content: center;
   background: transparent;
   color: var(--color-chartreuse);
-  border: 1px solid var(--color-chartreuse);
+  border: 1px solid color-mix(in oklab, var(--color-chartreuse) 72%, var(--neon-magenta));
   padding: 1rem 2rem;
   font-family: var(--font-mono);
   font-size: 0.875rem;
@@ -140,6 +160,8 @@ body {
 
 .btn-tech:hover {
   color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 22px rgba(204, 255, 0, 0.45);
 }
 
 .btn-tech:hover::before {
@@ -149,6 +171,10 @@ body {
 .btn-tech-alt {
   color: var(--color-cyan-glow);
   border-color: var(--color-cyan-glow);
+}
+
+.btn-tech-alt:hover {
+  box-shadow: 0 0 22px rgba(0, 229, 255, 0.5);
 }
 
 .btn-tech-alt::before {
@@ -163,4 +189,33 @@ body {
 
 .animate-blink {
   animation: blink 1.2s step-end infinite;
+}
+
+
+.glass-panel {
+  background: linear-gradient(145deg, rgba(7, 10, 18, 0.78), rgba(8, 8, 12, 0.86));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 43, 214, 0.12), 0 12px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  font-family: var(--font-space);
+  font-size: clamp(2rem, 4vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  color: #9df6ff;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: rgba(0, 229, 255, 0.06);
 }
