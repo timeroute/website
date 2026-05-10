@@ -29,10 +29,8 @@ export default function StarField() {
       initMesh();
     };
 
-    // Initialize 3D wave mesh
     const initMesh = () => {
       pointsRef.current = [];
-      // 移动端降低密度以提高性能
       const isMobile = window.innerWidth < 768;
       const cols = isMobile ? 20 : 40;
       const rows = isMobile ? 20 : 40;
@@ -48,7 +46,7 @@ export default function StarField() {
           const angle = Math.sqrt(x * x + z * z) * 0.05;
           pointsRef.current.push({
             x,
-            baseY: 100, // offset below center
+            baseY: 100,
             y: 100,
             z,
             angle
@@ -69,29 +67,28 @@ export default function StarField() {
 
       timeRef.current += 0.02;
 
-      ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
-
       pointsRef.current.forEach((point) => {
-        // Calculate wave motion
         point.y = point.baseY + Math.sin(point.angle + timeRef.current) * 40;
 
-        // Project 3D to 2D
         const scale = fov / (fov + point.z);
         const x2d = point.x * scale + centerX;
-        const y2d = point.y * scale + centerY + 100; // shift down slightly
+        const y2d = point.y * scale + centerY + 100;
 
-        // Only draw if within bounds and in front of camera
         if (point.z > 0 && x2d > 0 && x2d < canvas.width && y2d > 0 && y2d < canvas.height) {
+          // Alternate colors for cyberpunk vibe
+          const isCyan = (Math.floor(point.x + point.z) % 2 === 0);
+          ctx.fillStyle = isCyan ? 'rgba(0, 240, 255, 0.6)' : 'rgba(255, 0, 255, 0.5)';
+          ctx.shadowColor = isCyan ? 'rgba(0, 240, 255, 0.5)' : 'rgba(255, 0, 255, 0.5)';
+          
           ctx.beginPath();
-          // Scale size based on depth
-          ctx.arc(x2d, y2d, scale * 1.5, 0, Math.PI * 2);
+          const pointSize = scale * 2;
+          ctx.arc(x2d, y2d, pointSize, 0, Math.PI * 2);
           ctx.fill();
         }
         
-        // Slowly move points towards camera to create infinite forward motion
         point.z -= 1;
         if (point.z < 10) {
-          point.z = 100 + 40 * 40; // recycle to back
+          point.z = 100 + 40 * 40;
         }
       });
 
@@ -111,7 +108,7 @@ export default function StarField() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40 mix-blend-screen"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-50 mix-blend-screen"
       style={{ background: 'transparent' }}
     />
   );
