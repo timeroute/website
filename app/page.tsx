@@ -64,15 +64,15 @@ export default function Home() {
         <section id="home" className="relative min-h-[100dvh] overflow-hidden pt-16">
           <ContourField />
 
-          <div className="relative z-10 mx-auto flex min-h-[calc(100dvh-4rem)] max-w-6xl flex-col justify-center px-6 py-12 lg:px-10 lg:py-16">
-            <h1 className="brand-mark reveal whitespace-nowrap text-[clamp(3.4rem,10vw,7.5rem)]">
+          <div className="shell relative z-10 flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-14 md:py-20">
+            <h1 className="brand-mark reveal text-[clamp(3.2rem,9vw,5.75rem)]">
               ZHU JIA
             </h1>
             <p className="reveal reveal-delay-1 mt-2 font-zh text-xl text-meridian md:text-2xl" style={{ fontWeight: 500 }}>
               朱嘉
             </p>
 
-            <p className="headline reveal reveal-delay-2 mt-6 max-w-xl text-[clamp(1.35rem,2.6vw,2rem)]">
+            <p className="headline reveal reveal-delay-2 mt-6 max-w-md text-[clamp(1.35rem,2.4vw,1.85rem)]">
               把地图做成可交互的产品
             </p>
             <p className="lede reveal reveal-delay-3 mt-3">
@@ -95,20 +95,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="focus" className="relative z-10 border-t border-ink/8 bg-snow/55 py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <section id="focus" className="relative z-10 border-t border-ink/8 bg-snow/55 py-16 md:py-24">
+          <div className="shell">
             <p className="section-kicker">方向</p>
-            <h2 className="headline mt-4 max-w-2xl text-[clamp(2rem,4vw,3.25rem)]">
+            <h2 className="headline mt-3 max-w-lg text-[clamp(1.75rem,3.2vw,2.5rem)]">
               把地理数据变成可交互的空间界面
             </h2>
 
-            <div className="mt-12">
+            <div className="mt-10">
               {focuses.map((item) => (
                 <div key={item.title} className="focus-block">
-                  <h3 className="font-display text-2xl tracking-tight text-ink md:text-3xl" style={{ fontWeight: 700 }}>
+                  <h3 className="font-display text-xl tracking-tight text-ink md:text-2xl" style={{ fontWeight: 700 }}>
                     {item.title}
                   </h3>
-                  <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+                  <p className="mt-2 max-w-xl text-base leading-relaxed text-ink/70">
                     {item.desc}
                   </p>
                 </div>
@@ -117,17 +117,17 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="work" className="relative z-10 py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <section id="work" className="relative z-10 py-16 md:py-24">
+          <div className="shell">
             <p className="section-kicker">作品</p>
-            <h2 className="headline mt-4 max-w-2xl text-[clamp(2rem,4vw,3.25rem)]">
+            <h2 className="headline mt-3 max-w-lg text-[clamp(1.75rem,3.2vw,2.5rem)]">
               开源与工程实践
             </h2>
-            <p className="lede mt-5">
+            <p className="lede mt-4">
               选一些能说明问题的项目——组件库、引擎、解析工具，以及跨平台地图集成。
             </p>
 
-            <div className="mt-12 border-t border-contour/35">
+            <div className="mt-10 border-t border-contour/35">
               {projects.map((project) => (
                 <a
                   key={project.title}
@@ -136,34 +136,34 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="project-row group"
                 >
-                  <div>
+                  <div className="project-row-top">
                     <h3 className="project-title group-hover:text-meridian transition-colors">
                       {project.title}
                     </h3>
-                    <p className="project-meta mt-2">{project.tags.join(' · ')}</p>
+                    <span className="shrink-0 font-mono text-sm text-ember">
+                      打开 →
+                    </span>
                   </div>
-                  <p className="text-ink/65 leading-relaxed">{project.desc}</p>
-                  <span className="font-mono text-sm text-ember md:justify-self-end">
-                    打开 →
-                  </span>
+                  <p className="project-meta">{project.tags.join(' · ')}</p>
+                  <p className="max-w-xl text-ink/65 leading-relaxed">{project.desc}</p>
                 </a>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="relative z-10 border-t border-ink/8 bg-snow/70 py-20 md:py-28">
-          <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 lg:flex-row lg:items-end lg:justify-between lg:px-10">
-            <div>
+        <section id="contact" className="relative z-10 border-t border-ink/8 bg-snow/70 py-16 md:py-24">
+          <div className="shell flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-md">
               <p className="section-kicker">联系</p>
-              <h2 className="headline mt-4 max-w-xl text-[clamp(2rem,4vw,3.25rem)]">
+              <h2 className="headline mt-3 text-[clamp(1.75rem,3.2vw,2.5rem)]">
                 一起做有意义的空间产品
               </h2>
-              <p className="lede mt-5">
+              <p className="lede mt-4">
                 如果你在做地图、可视化或 GIS 相关的事，欢迎直接来聊。
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:items-stretch">
               <a
                 href="https://github.com/zhujia"
                 target="_blank"
@@ -185,8 +185,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-ink/8 px-6 py-8 text-sm text-ink/50 lg:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="relative z-10 border-t border-ink/8 py-8 text-sm text-ink/50">
+        <div className="shell flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <span className="font-display tracking-tight text-ink/70" style={{ fontWeight: 700 }}>
             ZHU JIA
           </span>
