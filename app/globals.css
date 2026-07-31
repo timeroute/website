@@ -188,9 +188,7 @@ a {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  animation: rise-in 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: rise-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .reveal-delay-1 { animation-delay: 120ms; }
@@ -199,6 +197,10 @@ a {
 .reveal-delay-4 { animation-delay: 480ms; }
 
 @keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
