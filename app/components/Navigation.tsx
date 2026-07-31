@@ -55,7 +55,7 @@ export default function Navigation() {
             : 'bg-transparent border-b border-transparent'
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-10">
+        <nav className="shell flex h-16 items-center justify-between">
           <button
             type="button"
             onClick={() => go('home')}

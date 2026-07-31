@@ -19,6 +19,15 @@
   --background: #e4eef2;
   --foreground: #152028;
   --focus-ring: #1f6f78;
+  --shell-max: 42rem;
+  --shell-pad: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --shell-max: 44rem;
+    --shell-pad: 2rem;
+  }
 }
 
 * {
@@ -63,6 +72,13 @@ a {
     linear-gradient(165deg, #d7e6ed 0%, #e4eef2 42%, #eef5f7 100%);
 }
 
+/* Narrow editorial column — keeps content from spanning full viewport */
+.shell {
+  width: min(100%, var(--shell-max));
+  margin-inline: auto;
+  padding-inline: var(--shell-pad);
+}
+
 .hero-plane {
   position: absolute;
   inset: 0;
@@ -88,10 +104,10 @@ a {
 
 .lede {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   line-height: 1.65;
   color: color-mix(in oklab, var(--color-ink) 72%, var(--color-contour));
-  max-width: 34rem;
+  max-width: 36rem;
 }
 
 .section-kicker {
@@ -142,30 +158,27 @@ a {
 
 .project-row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  padding: 1.4rem 0;
+  gap: 0.55rem;
+  padding: 1.35rem 0;
   border-bottom: 1px solid color-mix(in oklab, var(--color-contour) 35%, transparent);
-  transition: padding 220ms ease, background-color 220ms ease;
+  transition: transform 220ms ease, border-color 220ms ease;
 }
 
-@media (min-width: 768px) {
-  .project-row {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
-    align-items: baseline;
-    gap: 1.5rem;
-    padding: 1.6rem 0.4rem;
-  }
+.project-row:hover {
+  transform: translateX(4px);
+  border-bottom-color: color-mix(in oklab, var(--color-meridian) 45%, transparent);
+}
 
-  .project-row:hover {
-    padding-left: 0.9rem;
-    background: linear-gradient(90deg, rgba(31, 111, 120, 0.06), transparent 70%);
-  }
+.project-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .project-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -247,5 +260,9 @@ a {
   .btn-secondary,
   .project-row {
     transition: none;
+  }
+
+  .project-row:hover {
+    transform: none;
   }
 }
