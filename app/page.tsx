@@ -64,22 +64,22 @@ export default function Home() {
         <section id="home" className="relative min-h-[100dvh] overflow-hidden pt-16">
           <ContourField />
 
-          <div className="relative z-10 mx-auto flex min-h-[calc(100dvh-4rem)] max-w-6xl flex-col justify-end px-6 pb-16 pt-20 lg:px-10 lg:pb-24">
-            <h1 className="brand-mark reveal text-[clamp(4.2rem,14vw,9.5rem)]">
+          <div className="relative z-10 mx-auto flex min-h-[calc(100dvh-4rem)] max-w-6xl flex-col justify-center px-6 py-12 lg:px-10 lg:py-16">
+            <h1 className="brand-mark reveal whitespace-nowrap text-[clamp(3.4rem,10vw,7.5rem)]">
               ZHU JIA
             </h1>
-            <p className="reveal reveal-delay-1 mt-3 font-zh text-2xl text-meridian md:text-3xl" style={{ fontWeight: 500 }}>
+            <p className="reveal reveal-delay-1 mt-2 font-zh text-xl text-meridian md:text-2xl" style={{ fontWeight: 500 }}>
               朱嘉
             </p>
 
-            <p className="headline reveal reveal-delay-2 mt-8 max-w-xl text-[clamp(1.5rem,3.2vw,2.35rem)]">
+            <p className="headline reveal reveal-delay-2 mt-6 max-w-xl text-[clamp(1.35rem,2.6vw,2rem)]">
               把地图做成可交互的产品
             </p>
-            <p className="lede reveal reveal-delay-3 mt-4">
+            <p className="lede reveal reveal-delay-3 mt-3">
               专注 WebGL、CesiumJS 与 MapboxGL，构建高性能空间数据可视化体验。
             </p>
 
-            <div className="reveal reveal-delay-4 mt-10 flex flex-wrap gap-3">
+            <div className="reveal reveal-delay-4 mt-8 flex flex-wrap gap-3">
               <a href="#work" className="btn-primary">
                 查看作品
               </a>
