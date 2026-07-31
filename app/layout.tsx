@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono, Noto_Sans_SC } from "next/font/google";
+import { Syne, IBM_Plex_Sans, IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space",
+const syne = Syne({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500"],
 });
 
 const notoSansSC = Noto_Sans_SC({
   variable: "--font-zh",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Zhu Jia Portfolio",
     images: [
       {
-        url: '/og-image.jpg', // 可以后续补充真实的截图
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Zhu Jia Portfolio',
@@ -72,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body
-        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${notoSansSC.variable} antialiased font-zh bg-obsidian text-slate-300`}
+        className={`${syne.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${notoSansSC.variable} antialiased font-body bg-atmosphere text-ink`}
       >
         {children}
       </body>
