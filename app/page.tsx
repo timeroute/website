@@ -21,37 +21,37 @@ const projects = [
     title: 'MapVue',
     desc: 'Vue3 MapboxGL 组件库，把常用地图能力封装成可组合的组件接口。',
     tags: ['Vue3', 'MapboxGL', 'TypeScript'],
-    link: 'https://github.com/zhujia/mapvue',
+    link: 'https://github.com/timeroute/mapvue',
   },
   {
     title: 'TimeMap',
     desc: '面向大体量地理数据的 WebGL 地图引擎，强调渲染性能与交互流畅度。',
     tags: ['WebGL', 'Canvas', 'TypeScript'],
-    link: 'https://github.com/zhujia/timemap',
+    link: 'https://github.com/timeroute/timemap',
   },
   {
     title: 'Vue-Cesium',
     desc: 'CesiumJS 的 Vue3 封装，用于快速搭建三维地球与空间场景应用。',
     tags: ['CesiumJS', 'Vue3'],
-    link: 'https://github.com/zhujia/vue-cesium',
+    link: 'https://github.com/timeroute/vue-cesium',
   },
   {
     title: 'Cesium-Extends',
     desc: '事件、数据加载与绘制等扩展能力，补齐 Cesium 工程化中的常见缺口。',
     tags: ['CesiumJS', 'GIS'],
-    link: 'https://github.com/zhujia/cesium-extends',
+    link: 'https://github.com/timeroute/cesium-extends',
   },
   {
     title: 'GaoFen-Parser',
     desc: '高分遥感卫星数据解析工具，连接原始影像与可用的分析流程。',
     tags: ['Python', 'Remote Sensing'],
-    link: 'https://github.com/zhujia/gaofen-parser',
+    link: 'https://github.com/timeroute/gaofen-parser',
   },
   {
     title: 'Flutter Map SDK',
     desc: '在 Flutter 中接入原生地图 SDK，打通跨平台地图集成路径。',
     tags: ['Flutter', 'Android'],
-    link: 'https://github.com/zhujia/flutter_with_map',
+    link: 'https://github.com/timeroute/flutter_with_map',
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Home() {
                 查看作品
               </a>
               <a
-                href="https://github.com/zhujia"
+                href="https://github.com/timeroute"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
@@ -165,7 +165,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-4 sm:items-stretch">
               <a
-                href="https://github.com/zhujia"
+                href="https://github.com/timeroute"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
