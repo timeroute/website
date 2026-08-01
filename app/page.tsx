@@ -153,22 +153,22 @@ export default function Home() {
         </section>
 
         <section id="contact" className="relative z-10 border-t border-ink/8 bg-snow/70 py-20 md:py-28">
-          <div className="shell flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="shell flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-lg">
               <p className="section-kicker">联系</p>
               <h2 className="headline mt-4 text-[clamp(1.9rem,3.4vw,2.75rem)]">
                 一起做有意义的空间产品
               </h2>
-              <p className="lede mt-6">
+              <p className="lede mt-5">
                 如果你在做地图、可视化或 GIS 相关的事，欢迎直接来聊。
               </p>
             </div>
-            <div className="flex flex-col gap-4 sm:items-stretch">
+            <div className="flex flex-col gap-5 sm:items-stretch sm:pt-2">
               <a
                 href="https://github.com/timeroute"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="btn-primary btn-compact"
               >
                 访问 GitHub
               </a>
@@ -176,7 +176,7 @@ export default function Home() {
                 href="https://zhujia.me"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="btn-secondary btn-compact"
               >
                 zhujia.me
               </a>

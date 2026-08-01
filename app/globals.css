@@ -144,6 +144,14 @@ a {
   background: color-mix(in oklab, var(--color-ember) 88%, black);
 }
 
+/* Contact section compact buttons */
+.btn-primary.btn-compact,
+.btn-secondary.btn-compact {
+  min-height: 2.75rem;
+  padding: 0.7rem 1.3rem;
+  font-size: 0.92rem;
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--color-ink);
