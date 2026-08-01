@@ -64,22 +64,22 @@ export default function Home() {
         <section id="home" className="relative min-h-[100dvh] overflow-hidden pt-16">
           <ContourField />
 
-          <div className="shell relative z-10 flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-16 md:py-24">
+          <div className="shell relative z-10 flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-20 md:py-28">
             <h1 className="brand-mark reveal text-[clamp(3.2rem,9vw,5.75rem)]">
               ZHU JIA
             </h1>
-            <p className="reveal reveal-delay-1 mt-4 font-zh text-xl text-meridian md:text-2xl" style={{ fontWeight: 500 }}>
+            <p className="reveal reveal-delay-1 mt-6 font-zh text-xl text-meridian md:text-2xl" style={{ fontWeight: 500 }}>
               朱嘉
             </p>
 
-            <p className="headline reveal reveal-delay-2 mt-10 max-w-lg text-[clamp(1.5rem,2.6vw,2.1rem)]">
+            <p className="headline reveal reveal-delay-2 mt-14 max-w-xl text-[clamp(1.5rem,2.6vw,2.1rem)]">
               把地图做成可交互的产品
             </p>
-            <p className="lede reveal reveal-delay-3 mt-5">
+            <p className="lede reveal reveal-delay-3 mt-7">
               专注 WebGL、CesiumJS 与 MapboxGL，构建高性能空间数据可视化体验。
             </p>
 
-            <div className="reveal reveal-delay-4 mt-12 flex flex-wrap gap-4">
+            <div className="reveal reveal-delay-4 mt-16 flex flex-wrap gap-5">
               <a href="#work" className="btn-primary">
                 查看作品
               </a>
