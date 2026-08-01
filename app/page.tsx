@@ -1,6 +1,57 @@
 import ContourField from './components/ContourField';
 import Navigation from './components/Navigation';
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: '朱嘉',
+  alternateName: 'Zhu Jia',
+  url: 'https://zhujia.me',
+  image: 'https://zhujia.me/og-image.jpg',
+  jobTitle: 'WebGL & GIS 空间数据可视化工程师',
+  description:
+    '专注 WebGL、CesiumJS、MapboxGL 地图引擎开发与空间数据可视化的全栈工程师。开源作者，构建 MapVue、TimeMap、Vue-Cesium 等 GIS 组件库与地图引擎。',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Open Source',
+    url: 'https://github.com/timeroute',
+  },
+  sameAs: [
+    'https://github.com/timeroute',
+    'https://zhujia.me',
+  ],
+  knowsAbout: [
+    'WebGL',
+    'GIS',
+    'CesiumJS',
+    'MapboxGL',
+    'Three.js',
+    '空间数据可视化',
+    '3D 地球',
+    '遥感影像处理',
+    'Vue3',
+    'React',
+    'TypeScript',
+    '前端工程化',
+  ],
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Zhu Jia Portfolio',
+  alternateName: '朱嘉的个人作品集',
+  url: 'https://zhujia.me',
+  inLanguage: 'zh-CN',
+  description:
+    '朱嘉的个人作品集 - WebGL、GIS、CesiumJS、MapboxGL 开源项目与工程实践展示。',
+  author: {
+    '@type': 'Person',
+    name: '朱嘉',
+    url: 'https://zhujia.me',
+  },
+};
+
 const focuses = [
   {
     title: 'WebGL 地图引擎',
@@ -58,6 +109,14 @@ const projects = [
 export default function Home() {
   return (
     <div className="site-atmosphere relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Navigation />
 
       <main>

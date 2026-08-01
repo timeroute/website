@@ -26,48 +26,84 @@ const notoSansSC = Noto_Sans_SC({
   weight: ["400", "500", "700"],
 });
 
+const siteUrl = 'https://zhujia.me';
+const siteTitle = 'Zhu Jia | WebGL & GIS 空间数据可视化工程师';
+const siteDescription = '朱嘉（Zhu Jia）- 专注 WebGL、CesiumJS、MapboxGL 地图引擎开发与空间数据可视化的全栈工程师。开源作者，构建 MapVue、TimeMap、Vue-Cesium 等 GIS 组件库与地图引擎。';
+const siteKeywords = '朱嘉, Zhu Jia, WebGL, GIS, CesiumJS, MapboxGL, 地图引擎, 空间数据可视化, 3D地球, 遥感影像, Vue3, React, TypeScript, 全栈工程师, 开源项目, MapVue, TimeMap, Vue-Cesium';
+
 export const metadata: Metadata = {
-  title: "Zhu Jia | WebGL & GIS Data Visualization Engineer",
-  description: "Zhu Jia - 全栈工程师，专注于 WebGL、CesiumJS、MapboxGL 地图引擎开发与复杂空间数据可视化。探索地理信息系统的无限可能。",
-  keywords: "Zhu Jia, 朱嘉, WebGL, GIS, 地图开发, 数据可视化, Vue3, React, CesiumJS, MapboxGL, 前端开发, 全栈工程师",
-  authors: [{ name: "Zhu Jia", url: "https://zhujia.me" }],
-  creator: "Zhu Jia",
-  publisher: "Zhu Jia",
-  metadataBase: new URL('https://zhujia.me'),
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: '%s | Zhu Jia Portfolio',
+  },
+  description: siteDescription,
+  keywords: siteKeywords,
+  authors: [{ name: 'Zhu Jia', url: siteUrl }],
+  creator: 'Zhu Jia',
+  publisher: 'Zhu Jia',
+  category: 'technology',
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      'zh-CN': '/',
+      'en-US': '/',
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/favicon.ico',
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  verification: {
+    google: 'google-site-verification-token',
+  },
   openGraph: {
-    title: "Zhu Jia | WebGL & GIS Engineer",
-    description: "专注于 WebGL 地图开发与数据可视化的全栈工程师。From CesiumJS to MapboxGL.",
-    url: "https://zhujia.me",
-    siteName: "Zhu Jia Portfolio",
+    type: 'website',
+    locale: 'zh_CN',
+    alternateLocale: ['en_US'],
+    url: siteUrl,
+    siteName: 'Zhu Jia Portfolio',
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Zhu Jia Portfolio',
+        alt: 'Zhu Jia - WebGL & GIS Engineer Portfolio',
+        type: 'image/jpeg',
       },
     ],
-    locale: 'zh_CN',
-    type: "website",
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Zhu Jia | WebGL & GIS Engineer",
-    description: "专注于 WebGL 地图开发与数据可视化的全栈工程师。",
-    creator: '@zhujia',
+    title: siteTitle,
+    description: siteDescription,
+    creator: '@timeroute',
+    site: '@timeroute',
     images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
+  archives: [siteUrl],
 };
 
 export default function RootLayout({

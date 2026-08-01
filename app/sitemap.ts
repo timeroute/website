@@ -1,13 +1,39 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = 'https://zhujia.me'
+  const now = new Date()
+
   return [
     {
-      url: 'https://zhujia.me',
-      lastModified: new Date(),
+      url: siteUrl,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 1,
+      alternates: {
+        languages: {
+          'zh-CN': siteUrl,
+          'en-US': `${siteUrl}/#en`,
+        },
+      },
     },
-    // 如果后续有更多的子页面（如 /projects, /about），可以在这里继续追加
+    {
+      url: `${siteUrl}/#focus`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/#work`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/#contact`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 }
