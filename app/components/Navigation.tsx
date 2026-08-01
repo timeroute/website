@@ -81,7 +81,7 @@ export default function Navigation() {
               </button>
             ))}
             <a
-              href="https://github.com/zhujia"
+              href="https://github.com/timeroute"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold text-ember hover:opacity-80"
@@ -136,7 +136,7 @@ export default function Navigation() {
             ))}
           </div>
           <a
-            href="https://github.com/zhujia"
+            href="https://github.com/timeroute"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-12 text-ember font-semibold"
