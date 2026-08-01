@@ -19,13 +19,13 @@
   --background: #e4eef2;
   --foreground: #152028;
   --focus-ring: #1f6f78;
-  --shell-max: 42rem;
+  --shell-max: 46rem;
   --shell-pad: 1.5rem;
 }
 
 @media (min-width: 768px) {
   :root {
-    --shell-max: 44rem;
+    --shell-max: 52rem;
     --shell-pad: 2rem;
   }
 }
@@ -90,7 +90,7 @@ a {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 0.88;
+  line-height: 0.92;
   color: var(--color-ink);
 }
 
@@ -98,22 +98,22 @@ a {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1.15;
   color: var(--color-ink);
 }
 
 .lede {
   font-family: var(--font-body);
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-  line-height: 1.65;
+  line-height: 1.85;
   color: color-mix(in oklab, var(--color-ink) 72%, var(--color-contour));
-  max-width: 36rem;
+  max-width: 40rem;
 }
 
 .section-kicker {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-meridian);
 }
@@ -124,12 +124,12 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 3rem;
-  padding: 0.8rem 1.4rem;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.6rem;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  border-radius: 0.35rem;
+  border-radius: 0.4rem;
   transition: transform 220ms ease, background-color 220ms ease, color 220ms ease, border-color 220ms ease;
 }
 
@@ -158,8 +158,8 @@ a {
 
 .project-row {
   display: grid;
-  gap: 0.55rem;
-  padding: 1.35rem 0;
+  gap: 0.85rem;
+  padding: 2rem 0;
   border-bottom: 1px solid color-mix(in oklab, var(--color-contour) 35%, transparent);
   transition: transform 220ms ease, border-color 220ms ease;
 }
@@ -178,21 +178,23 @@ a {
 
 .project-title {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-size: clamp(1.45rem, 2.2vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .project-meta {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--color-contour);
+  margin-top: 0.15rem;
 }
 
 .focus-block {
-  padding: 1.75rem 0;
+  padding: 2.25rem 0;
   border-top: 1px solid color-mix(in oklab, var(--color-contour) 35%, transparent);
 }
 
