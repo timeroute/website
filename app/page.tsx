@@ -1,6 +1,57 @@
 import ContourField from './components/ContourField';
 import Navigation from './components/Navigation';
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: '朱嘉',
+  alternateName: 'Zhu Jia',
+  url: 'https://zhujia.me',
+  image: 'https://zhujia.me/og-image.jpg',
+  jobTitle: 'WebGL & GIS 空间数据可视化工程师',
+  description:
+    '专注 WebGL、CesiumJS、MapboxGL 地图引擎开发与空间数据可视化的全栈工程师。开源作者，构建 MapVue、TimeMap、Vue-Cesium 等 GIS 组件库与地图引擎。',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Open Source',
+    url: 'https://github.com/timeroute',
+  },
+  sameAs: [
+    'https://github.com/timeroute',
+    'https://zhujia.me',
+  ],
+  knowsAbout: [
+    'WebGL',
+    'GIS',
+    'CesiumJS',
+    'MapboxGL',
+    'Three.js',
+    '空间数据可视化',
+    '3D 地球',
+    '遥感影像处理',
+    'Vue3',
+    'React',
+    'TypeScript',
+    '前端工程化',
+  ],
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Zhu Jia Portfolio',
+  alternateName: '朱嘉的个人作品集',
+  url: 'https://zhujia.me',
+  inLanguage: 'zh-CN',
+  description:
+    '朱嘉的个人作品集 - WebGL、GIS、CesiumJS、MapboxGL 开源项目与工程实践展示。',
+  author: {
+    '@type': 'Person',
+    name: '朱嘉',
+    url: 'https://zhujia.me',
+  },
+};
+
 const focuses = [
   {
     title: 'WebGL 地图引擎',
@@ -58,28 +109,36 @@ const projects = [
 export default function Home() {
   return (
     <div className="site-atmosphere relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Navigation />
 
       <main>
         <section id="home" className="relative min-h-[100dvh] overflow-hidden pt-16">
           <ContourField />
 
-          <div className="shell relative z-10 flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-16 md:py-24">
+          <div className="shell relative z-10 flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-20 md:py-28">
             <h1 className="brand-mark reveal text-[clamp(3.2rem,9vw,5.75rem)]">
               ZHU JIA
             </h1>
-            <p className="reveal reveal-delay-1 mt-4 font-zh text-xl text-meridian md:text-2xl" style={{ fontWeight: 500 }}>
+            <p className="reveal reveal-delay-1 mt-6 font-zh text-xl text-meridian md:text-2xl" style={{ fontWeight: 500 }}>
               朱嘉
             </p>
 
-            <p className="headline reveal reveal-delay-2 mt-10 max-w-lg text-[clamp(1.5rem,2.6vw,2.1rem)]">
+            <p className="headline reveal reveal-delay-2 mt-14 max-w-xl text-[clamp(1.5rem,2.6vw,2.1rem)]">
               把地图做成可交互的产品
             </p>
-            <p className="lede reveal reveal-delay-3 mt-5">
+            <p className="lede reveal reveal-delay-3 mt-7">
               专注 WebGL、CesiumJS 与 MapboxGL，构建高性能空间数据可视化体验。
             </p>
 
-            <div className="reveal reveal-delay-4 mt-12 flex flex-wrap gap-4">
+            <div className="reveal reveal-delay-4 mt-16 flex flex-wrap gap-5">
               <a href="#work" className="btn-primary">
                 查看作品
               </a>
@@ -153,22 +212,22 @@ export default function Home() {
         </section>
 
         <section id="contact" className="relative z-10 border-t border-ink/8 bg-snow/70 py-20 md:py-28">
-          <div className="shell flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="shell flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-lg">
               <p className="section-kicker">联系</p>
               <h2 className="headline mt-4 text-[clamp(1.9rem,3.4vw,2.75rem)]">
                 一起做有意义的空间产品
               </h2>
-              <p className="lede mt-6">
+              <p className="lede mt-5">
                 如果你在做地图、可视化或 GIS 相关的事，欢迎直接来聊。
               </p>
             </div>
-            <div className="flex flex-col gap-4 sm:items-stretch">
+            <div className="flex flex-col gap-5 sm:items-stretch sm:pt-2">
               <a
                 href="https://github.com/timeroute"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary"
+                className="btn-primary btn-compact"
               >
                 访问 GitHub
               </a>
@@ -176,7 +235,7 @@ export default function Home() {
                 href="https://zhujia.me"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary"
+                className="btn-secondary btn-compact"
               >
                 zhujia.me
               </a>
